@@ -1,6 +1,9 @@
 # Open Data UFRN Downloader
 Pacote para baixar os dados do portal de dados abertos da UFRN.
 
+Projeto idealizado por [Ítalo Epifânio](https://github.com/itepifanio).
+Link do projeto original [aqui](https://github.com/professorCheatSheet/dadosAbertosUFRNDownloader).
+
 ```bash
 pip install odufrn-downloader
 ```

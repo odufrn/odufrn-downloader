@@ -1,0 +1,7 @@
+.idea/*
+venv/*
+dist/*
+build/*
+site/*
+odufrn_downloader.egg-info/*
+__pycache__
