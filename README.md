@@ -11,8 +11,8 @@ pip install odufrn-downloader
 ## Utilizando
 
 ```python
-from dadosAbertosUFRNDownloader import DadosAbertosUFRNDownloader
-ufrn_data = DadosAbertosUFRNDownloader()
+from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
 
 # Lista os conjuntos de dados
 ufrn_data.listPackage()
