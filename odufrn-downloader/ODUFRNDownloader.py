@@ -42,13 +42,13 @@ class ODUFRNDownloader():
             print(e)
             sys.exit(1)
 
-    def download_package(self, name: str, path=os.getcwd(): str):
+    def download_package(self, name: str, path: str = os.getcwd()):
         """
         Exibe conjunto de dado de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado
 
-        >>> Ex. downloadPackage('acervo-biblioteca')
+        > Exemplo: downloadPackage('acervo-biblioteca')
 
         Parâmetros
         ----------
@@ -76,7 +76,6 @@ class ODUFRNDownloader():
                 with open(file_path, 'wb') as f:
                     f.write(requests.get(resource['url']).content)
         except:
-            # shutil.rmtree(path)
             print(
                 "Ocorreu algum erro durante o download do pacote "
                 "verifique sua conexão, o nome do conjunto de dados "
