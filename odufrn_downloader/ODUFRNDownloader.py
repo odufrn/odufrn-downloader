@@ -15,9 +15,14 @@ class ODUFRNDownloader():
         a url para a página de ações da API
     dataset: str
         a url para a consulta de datasets da API da UFRN
+    availabe_datasets: list
+        lista de conjuntos de dados que estão disponíveis para download
 
     Métodos
     -------
+    load_datasets()
+        Atualiza lista de datasets disponíveis.
+
     list_datasets()
         Lista os conjuntos de dados.
 
@@ -26,7 +31,7 @@ class ODUFRNDownloader():
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
-    download_datasets(name, path=os.getcwd())
+    download_datasets(datasets, path=os.getcwd())
         Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -36,12 +41,31 @@ class ODUFRNDownloader():
         self.base = 'http://dados.ufrn.br/'
         self.action = self.base + 'api/action/'
         self.dataset = self.base + 'api/rest/dataset/'
+        self.availabe_datasets = []
+
+    def load_datasets(self):
+        """Atualiza lista de datasets disponíveis. 
+        
+        Retorno
+        -------
+        JSON com o resultado da consulta à API
+
+        """
+        packages = requests.get(self.action + 'package_list').json()
+
+        # Atualiza lista
+        self.availabe_datasets = packages['result']
+
+        return packages
 
     def list_datasets(self):
         """Lista os conjuntos de dados."""
         try:
+            # Atualiza lista
+            packages = self.load_datasets()
+
             print(
-                json.dumps(requests.get(self.action + 'package_list').json(), indent=4)
+                json.dumps(packages, indent=4)
             )
         except requests.exceptions.RequestException as ex:
             print(ex)
@@ -62,11 +86,16 @@ class ODUFRNDownloader():
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)
         """
-        request_dataset = requests.get(self.dataset + name)
 
-        if request_dataset.status_code == 404:
+        # Por precaução, atualiza lista de datasets disponíveis
+        self.load_datasets()
+
+        # Checa se o dataset está disponível
+        if not (name in self.availabe_datasets):
             print("O conjunto de dados \"{}\" não foi encontrado.".format(name))
             return
+
+        request_dataset = requests.get(self.dataset + name)
 
         dataset = request_dataset.json()
         path = os.path.join(path, name)
