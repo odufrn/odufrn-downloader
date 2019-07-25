@@ -42,7 +42,7 @@ class ODUFRNDownloader():
             print(e)
             sys.exit(1)
 
-    def download_package(self, name, path=os.getcwd()):
+    def download_package(self, name: str, path=os.getcwd(): str):
         """
         Exibe conjunto de dado de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
