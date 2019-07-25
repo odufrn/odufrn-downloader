@@ -15,8 +15,12 @@ from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
 # Lista os conjuntos de dados
-ufrn_data.listPackage()
+ufrn_data.list_datasets()
 
-# Baixa um conjunto de dado
-ufrn_data.downloadPackage('discentes')
+# Baixa um conjunto de dados
+ufrn_data.download_dataset('discentes')
+
+# Baixa uma lista de conjuntos de dados
+datasets = ['discentes', 'dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes']
+ufrn_data.download_datasets(datasets)
 ```
