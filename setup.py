@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="odufrn-downloader",
-    version="0.0.1",
+    name="odufrn_downloader",
+    version="0.1.1",
     author="Open Data UFRN",
     author_email="alvarofepipa@gmail.com",
     description="Open Data UFRN Downloader",
