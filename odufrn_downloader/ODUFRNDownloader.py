@@ -2,6 +2,7 @@ import requests
 import json
 import sys
 import os
+import pprint
 
 
 class ODUFRNDownloader():
@@ -15,24 +16,27 @@ class ODUFRNDownloader():
         a url para a página de ações da API
     dataset: str
         a url para a consulta de datasets da API da UFRN
-    availabe_datasets: list
+    available_datasets: list
         lista de conjuntos de dados que estão disponíveis para download
 
     Métodos
     -------
+    _print_exception(ex: Exception)
+        imprime mensagem padrão para exceções.
+
     load_datasets()
-        Atualiza lista de datasets disponíveis.
+        atualiza lista de datasets disponíveis.
 
     list_datasets()
-        Lista os conjuntos de dados.
+        lista os conjuntos de dados.
 
-    download_dataset(name, path=os.getcwd())
-        Exibe conjunto de dados de acordo com seu nome
+    download_dataset(name: str, path: str=os.getcwd())
+        exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
-    download_datasets(datasets, path=os.getcwd())
-        Exibe os conjuntos de dados de acordo com seu nome
+    download_datasets(datasets: list, path: str=os.getcwd())
+        exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
     """
@@ -41,43 +45,32 @@ class ODUFRNDownloader():
         self.base = 'http://dados.ufrn.br/'
         self.action = self.base + 'api/action/'
         self.dataset = self.base + 'api/rest/dataset/'
-        self.availabe_datasets = []
+        self.load_datasets()
+
+    def _print_exception(self, ex: Exception):
+        """Imprime mensagem padrão para exceções."""
+        print('\033[91m{}\033[0m'.format(ex))
+        print(
+            "Ocorreu algum erro durante o download do dataset. "
+            "Verifique sua conexão, o nome do conjunto de dados "
+            "e tente novamente."
+        )
 
     def load_datasets(self):
-        """Atualiza lista de datasets disponíveis. 
-        
-        Retorno
-        -------
-        JSON com o resultado da consulta à API
-
-        """
+        """Atualiza lista de datasets disponíveis."""
         try:
             packages = requests.get(self.action + 'package_list').json()
 
             # Atualiza lista
-            self.availabe_datasets = packages['result']
+            self.available_datasets = packages['result']
         except Exception as ex:
-            print('\033[91m{}\033[0m'.format(ex))
-            print(
-                "Ocorreu algum erro durante o download do dataset. "
-                "Verifique sua conexão, o nome do conjunto de dados "
-                "e tente novamente."
-            )
-
-        return packages
+            self._print_exception(ex)
 
     def list_datasets(self):
         """Lista os conjuntos de dados."""
-        try:
-            # Atualiza lista
-            packages = self.load_datasets()
-
-            print(
-                json.dumps(packages, indent=4)
-            )
-        except requests.exceptions.RequestException as ex:
-            print(ex)
-            sys.exit(1)
+        print("Os conjuntos de dados disponíveis são:")
+        pp = pprint.PrettyPrinter(indent=4)
+        pp.pprint(self.available_datasets)
 
     def download_dataset(self, name: str, path: str = os.getcwd()):
         """Exibe conjunto de dados de acordo com seu nome
@@ -95,11 +88,8 @@ class ODUFRNDownloader():
             (por padrão, a pasta atual)
         """
 
-        # Por precaução, atualiza lista de datasets disponíveis
-        self.load_datasets()
-
         # Checa se o dataset está disponível
-        if not (name in self.availabe_datasets):
+        if not (name in self.available_datasets):
             print("O conjunto de dados \"{}\" não foi encontrado.".format(name))
             return
 
@@ -121,12 +111,7 @@ class ODUFRNDownloader():
                 with open(file_path, 'wb') as f:
                     f.write(requests.get(resource['url']).content)
         except Exception as ex:
-            print('\033[91m{}\033[0m'.format(ex))
-            print(
-                "Ocorreu algum erro durante o download do dataset. "
-                "Verifique sua conexão, o nome do conjunto de dados "
-                "e tente novamente."
-            )
+            self._print_exception(ex)
 
     def download_datasets(self, datasets: list, path: str = os.getcwd()):
         """Exibe os conjuntos de dados de acordo com seu nome
