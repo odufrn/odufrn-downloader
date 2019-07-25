@@ -51,10 +51,18 @@ class ODUFRNDownloader():
         JSON com o resultado da consulta à API
 
         """
-        packages = requests.get(self.action + 'package_list').json()
+        try:
+            packages = requests.get(self.action + 'package_list').json()
 
-        # Atualiza lista
-        self.availabe_datasets = packages['result']
+            # Atualiza lista
+            self.availabe_datasets = packages['result']
+        except Exception as ex:
+            print('\033[91m{}\033[0m'.format(ex))
+            print(
+                "Ocorreu algum erro durante o download do dataset. "
+                "Verifique sua conexão, o nome do conjunto de dados "
+                "e tente novamente."
+            )
 
         return packages
 
