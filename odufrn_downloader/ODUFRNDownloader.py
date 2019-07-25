@@ -18,7 +18,7 @@ class ODUFRNDownloader():
 
     Métodos
     -------
-    list_package()
+    list_datasets()
         Lista os conjuntos de dados.
 
     download_dataset(name, path=os.getcwd())
@@ -37,7 +37,7 @@ class ODUFRNDownloader():
         self.action = self.base + 'api/action/'
         self.dataset = self.base + 'api/rest/dataset/'
 
-    def list_package(self):
+    def list_datasets(self):
         """Lista os conjuntos de dados."""
         try:
             print(
