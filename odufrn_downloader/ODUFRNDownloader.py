@@ -21,8 +21,13 @@ class ODUFRNDownloader():
     list_package()
         Lista os conjuntos de dados.
 
-    download_package(name, path=os.getcwd())
-        Exibe conjunto de dado de acordo com seu nome
+    download_dataset(name, path=os.getcwd())
+        Exibe conjunto de dados de acordo com seu nome
+        e baixa-os em pastas com o nome do respectivo
+        conjunto de dado.
+
+    download_datasets(name, path=os.getcwd())
+        Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
     """
@@ -42,12 +47,12 @@ class ODUFRNDownloader():
             print(ex)
             sys.exit(1)
 
-    def download_package(self, name: str, path: str = os.getcwd()):
-        """Exibe conjunto de dado de acordo com seu nome
+    def download_dataset(self, name: str, path: str = os.getcwd()):
+        """Exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
-        > Exemplo: downloadPackage('acervo-biblioteca')
+        > Exemplo: download_dataset('acervo-biblioteca')
 
         Parâmetros
         ----------
@@ -81,26 +86,26 @@ class ODUFRNDownloader():
         except Exception as ex:
             print('\033[91m{}\033[0m'.format(ex))
             print(
-                "Ocorreu algum erro durante o download do pacote. "
+                "Ocorreu algum erro durante o download do dataset. "
                 "Verifique sua conexão, o nome do conjunto de dados "
                 "e tente novamente."
             )
 
-    def download_packages(self, packages: list, path: str = os.getcwd()):
-        """Exibe conjunto de dado de acordo com seu nome
+    def download_datasets(self, datasets: list, path: str = os.getcwd()):
+        """Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
-        > Exemplo: downloadPackage('acervo-biblioteca')
+        > Exemplo: download_datasets(['discentes', 'dados-complementares-de-discentes'])
 
         Parâmetros
         ----------
-        name: str
-            nome do dataset
+        datasets: list
+            lista com os nomes dos datasets desejados
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)
         """
 
-        for package in packages:
-            self.download_package(package, path)
+        for dataset in datasets:
+            self.download_dataset(dataset, path)
