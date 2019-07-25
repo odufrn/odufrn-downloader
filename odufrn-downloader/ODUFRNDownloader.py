@@ -15,6 +15,8 @@ class ODUFRNDownloader():
             a url para a página de ações da API
         dataset: str
             a url para a consulta de datasets da API da UFRN
+        packages: list
+            lista de datasets disponíveis para download
 
         Métodos
         -------
@@ -31,6 +33,7 @@ class ODUFRNDownloader():
         self.base = 'http://dados.ufrn.br/'
         self.action = self.base + 'api/action/'
         self.dataset = self.base + 'api/rest/dataset/'
+        self.packages = []
 
     def list_package(self):
         """Lista os conjuntos de dados. """
