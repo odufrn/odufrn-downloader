@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Documentação - Odufrn-downloader docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Documenta\u00e7\u00e3o";
+    var mkdocs_page_input_path = "odufrn_downloader/docs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Odufrn-downloader docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Documentação</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#atributos">Atributos</a></li>
+    
+
+    <li class="toctree-l2"><a href="#metodos">Métodos</a></li>
+    
+
+    <li class="toctree-l2"><a href="#parametros">Parâmetros</a></li>
+    
+
+    <li class="toctree-l2"><a href="#parametros_1">Parâmetros</a></li>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Odufrn-downloader docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Documentação</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="odufrn_downloader.ODUFRNDownloader">ODUFRNDownloader</h1>
+
+<pre><code class="python">ODUFRNDownloader(self)
+</code></pre>
+
+<p>Classe responsável pelo download de datasets.</p>
+<h2 id="atributos">Atributos</h2>
+<p>base: str
+    a url para a API de dados abertos da UFRN
+action: str
+    a url para a página de ações da API
+dataset: str
+    a url para a consulta de datasets da API da UFRN
+available_datasets: list
+    lista de conjuntos de dados que estão disponíveis para download</p>
+<h2 id="metodos">Métodos</h2>
+<p>_print_exception(ex: Exception)
+    imprime mensagem padrão para exceções.</p>
+<p>load_datasets()
+    atualiza lista de datasets disponíveis.</p>
+<p>list_datasets()
+    lista os conjuntos de dados.</p>
+<p>download_dataset(name: str, path: str=os.getcwd())
+    exibe conjunto de dados de acordo com seu nome
+    e baixa-os em pastas com o nome do respectivo
+    conjunto de dado.</p>
+<p>download_datasets(datasets: list, path: str=os.getcwd())
+    exibe os conjuntos de dados de acordo com seu nome
+    e baixa-os em pastas com o nome do respectivo
+    conjunto de dado.</p>
+<h2 id="odufrn_downloader.ODUFRNDownloader.load_datasets">load_datasets</h2>
+
+<pre><code class="python">ODUFRNDownloader.load_datasets(self)
+</code></pre>
+
+<p>Atualiza lista de datasets disponíveis.
+<h2 id="odufrn_downloader.ODUFRNDownloader.list_datasets">list_datasets</h2></p>
+<pre><code class="python">ODUFRNDownloader.list_datasets(self)
+</code></pre>
+
+<p>Lista os conjuntos de dados.
+<h2 id="odufrn_downloader.ODUFRNDownloader.download_dataset">download_dataset</h2></p>
+<pre><code class="python">ODUFRNDownloader.download_dataset(self, name:str, path:str='/home/italo/open-source/odufrn-downloader/docs')
+</code></pre>
+
+<p>Exibe conjunto de dados de acordo com seu nome
+e baixa-os em pastas com o nome do respectivo
+conjunto de dado.</p>
+<blockquote>
+<p>Exemplo: download_dataset('acervo-biblioteca')</p>
+</blockquote>
+<h2 id="parametros">Parâmetros</h2>
+<p>name: str
+    nome do dataset
+path: str
+    o caminho da pasta onde serão adicionados os arquivos
+    (por padrão, a pasta atual)</p>
+<h2 id="odufrn_downloader.ODUFRNDownloader.download_datasets">download_datasets</h2>
+
+<pre><code class="python">ODUFRNDownloader.download_datasets(self, datasets:list, path:str='/home/italo/open-source/odufrn-downloader/docs')
+</code></pre>
+
+<p>Exibe os conjuntos de dados de acordo com seu nome
+e baixa-os em pastas com o nome do respectivo
+conjunto de dado.</p>
+<blockquote>
+<p>Exemplo: download_datasets(['discentes', 'dados-complementares-de-discentes'])</p>
+</blockquote>
+<h2 id="parametros_1">Parâmetros</h2>
+<p>datasets: list
+    lista com os nomes dos datasets desejados
+path: str
+    o caminho da pasta onde serão adicionados os arquivos
+    (por padrão, a pasta atual)</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
