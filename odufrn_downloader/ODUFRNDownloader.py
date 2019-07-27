@@ -72,7 +72,7 @@ class ODUFRNDownloader():
         pp = pprint.PrettyPrinter(indent=4)
         pp.pprint(self.available_datasets)
 
-    def download_dataset(self, name: str, path: str = os.getcwd()):
+    def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
         """Exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -103,6 +103,9 @@ class ODUFRNDownloader():
 
         try:
             for resource in dataset['resources']:
+                if not dictionary and 'Dicion' in resource['name']:
+                    continue
+                    
                 print("Baixando {}...".format(resource['name']))
                 file_path = '{}/{}.{}'.format(
                     path, resource['name'], resource['format'].lower()
