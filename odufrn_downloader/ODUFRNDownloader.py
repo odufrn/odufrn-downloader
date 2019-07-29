@@ -30,15 +30,17 @@ class ODUFRNDownloader():
     list_datasets()
         lista os conjuntos de dados.
 
-    download_dataset(name: str, path: str=os.getcwd())
+    download_dataset(name: str, path: str=os.getcwd(), dictionary: bool = True)
         exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
-        conjunto de dado.
+        conjunto de dado. Podendo setar se deseja baixar
+        o dicionário dos dados
 
-    download_datasets(datasets: list, path: str=os.getcwd())
+    download_datasets(datasets: list, path: str=os.getcwd(), dictionary: bool = True)
         exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
-        conjunto de dado.
+        conjunto de dado. Podendo setar se deseja baixar
+        o dicionário dos dados
     """
 
     def __init__(self):
@@ -86,6 +88,8 @@ class ODUFRNDownloader():
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)
+        dictionary: bool
+            flag para baixar o dicionário dos dados (por padrão, True)    
         """
 
         # Checa se o dataset está disponível
@@ -116,7 +120,7 @@ class ODUFRNDownloader():
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_datasets(self, datasets: list, path: str = os.getcwd()):
+    def download_datasets(self, datasets: list, path: str = os.getcwd(), dictionary: bool = True):
         """Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -130,7 +134,9 @@ class ODUFRNDownloader():
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)
+        dictionary: bool
+            flag para baixar o dicionário dos dados (por padrão, True)  
         """
 
         for dataset in datasets:
-            self.download_dataset(dataset, path)
+            self.download_dataset(dataset, path, dictionary)
