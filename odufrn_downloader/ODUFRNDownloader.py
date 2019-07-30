@@ -41,6 +41,10 @@ class ODUFRNDownloader():
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado. Podendo setar se deseja baixar
         o dicionário dos dados
+
+    def download_from_file(self, filename: str, path: str = os.getcwd(), dictionary: bool = True):
+        Baixa os conjuntos de dados que estão escrito
+        em um arquivo de texto.
     """
 
     def __init__(self):
@@ -217,3 +221,26 @@ class ODUFRNDownloader():
 
         for group in groups:
             self.download_group(group, path, dictionary)
+
+    def download_from_file(self, filename: str, path: str = os.getcwd(), dictionary: bool = True):
+        """Baixa os conjuntos de dados que estão escrito
+        em um arquivo de texto.
+
+        > Exemplo: download_from_file('arquivo_teste.txt')
+
+        Parâmetros
+        ----------
+        filename: str
+            nome do arquivo que contêm os datasets
+        path: str
+            o caminho da pasta onde serão adicionados os arquivos
+            (por padrão, a pasta atual)
+        dictionary: bool
+            flag para baixar o dicionário dos dados (por padrão, True)
+        """
+        try:
+            with open(filename, 'r') as file:
+                for datasetName in file:
+                    self.download_dataset(datasetName.rstrip(), path, dictionary)
+        except IOError as ex:
+            self._print_exception(ex)
