@@ -36,11 +36,11 @@ class ODUFRNDownloader():
         conjunto de dado. Podendo setar se deseja baixar
         o dicionário dos dados
 
-    download_datasets(datasets: list, path: str=os.getcwd(), dictionary: bool = True)
+    download_datasets(datasets: list, path: str=os.getcwd(), dictionary: bool = True, years: array = [])
         exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado. Podendo setar se deseja baixar
-        o dicionário dos dados
+        o dicionário dos dados e os anos que podem ser baixados
 
     def download_from_file(self, filename: str, path: str = os.getcwd(), dictionary: bool = True):
         Baixa os conjuntos de dados que estão escrito
@@ -96,7 +96,7 @@ class ODUFRNDownloader():
         pp = pprint.PrettyPrinter(indent=4)
         pp.pprint(self.available_groups)
 
-    def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
+    def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True, years=[]):
         """Exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -111,7 +111,9 @@ class ODUFRNDownloader():
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)
         dictionary: bool
-            flag para baixar o dicionário dos dados (por padrão, True)    
+            flag para baixar o dicionário dos dados (por padrão, True)
+        years: array
+            Define os anos dos dados que serão baixados, se existir realiza-se o download
         """
 
         # Checa se o dataset está disponível
@@ -129,20 +131,23 @@ class ODUFRNDownloader():
 
         try:
             for resource in dataset['resources']:
+                year = [year for year in years if resource['name'].find(str(year)) != -1]                   
+                
                 if not dictionary and 'Dicion' in resource['name']:
-                    continue
-                    
-                print("Baixando {}...".format(resource['name']))
-                file_path = '{}/{}.{}'.format(
-                    path, resource['name'], resource['format'].lower()
-                )
+                    continue    
 
-                with open(file_path, 'wb') as f:
-                    f.write(requests.get(resource['url']).content)
+                if years == [] or len(year) > 0:    
+                    print("Baixando {}...".format(resource['name']))
+                    file_path = '{}/{}.{}'.format(
+                        path, resource['name'], resource['format'].lower()
+                    )
+
+                    with open(file_path, 'wb') as f:
+                        f.write(requests.get(resource['url']).content)
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_datasets(self, datasets: list, path: str = os.getcwd(), dictionary: bool = True):
+    def download_datasets(self, datasets: list, path: str = os.getcwd(), dictionary: bool = True, years=[]):
         """Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -161,7 +166,7 @@ class ODUFRNDownloader():
         """
 
         for dataset in datasets:
-            self.download_dataset(dataset, path, dictionary)
+            self.download_dataset(dataset, path, dictionary, years)
     
     def download_group(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
         """Exibe grupo de dados de acordo com seu nome
