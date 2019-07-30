@@ -47,7 +47,9 @@ class ODUFRNDownloader():
         self.base = 'http://dados.ufrn.br/'
         self.action = self.base + 'api/action/'
         self.dataset = self.base + 'api/rest/dataset/'
+        self.group = self.base + 'api/rest/group/'
         self.load_datasets()
+        self.load_groups()
 
     def _print_exception(self, ex: Exception):
         """Imprime mensagem padrão para exceções."""
@@ -68,11 +70,27 @@ class ODUFRNDownloader():
         except Exception as ex:
             self._print_exception(ex)
 
+    def load_groups(self):
+        """Atualiza lista de grupos disponíveis."""
+        try:
+            packages = requests.get(self.action + 'group_list').json()
+
+            # Atualiza lista
+            self.available_groups = packages['result']
+        except Exception as ex:
+            self._print_exception(ex)
+
     def list_datasets(self):
         """Lista os conjuntos de dados."""
         print("Os conjuntos de dados disponíveis são:")
         pp = pprint.PrettyPrinter(indent=4)
         pp.pprint(self.available_datasets)
+        
+    def list_groups(self):
+        """Lista os grupos de dados."""
+        print("Os grupos de dados disponíveis são:")
+        pp = pprint.PrettyPrinter(indent=4)
+        pp.pprint(self.available_groups)
 
     def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
         """Exibe conjunto de dados de acordo com seu nome
@@ -140,3 +158,62 @@ class ODUFRNDownloader():
 
         for dataset in datasets:
             self.download_dataset(dataset, path, dictionary)
+    
+    def download_group(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
+        """Exibe grupo de dados de acordo com seu nome
+        e baixa-os em pastas com o nome do respectivo
+        grupo de dados.
+
+        > Exemplo: download_group('pessoas')
+
+        Parâmetros
+        ----------
+        name: str
+            nome do grupo
+        path: str
+            o caminho da pasta onde serão adicionados os arquivos
+            (por padrão, a pasta atual)
+        dictionary: bool
+            flag para baixar o dicionário dos dados (por padrão, True)    
+        """
+
+        # Checa se o grupo está disponível
+        if not (name in self.available_groups):
+            print("O grupo de dados \"{}\" não foi encontrado.".format(name))
+            return
+
+        request_group = requests.get(self.group + name)
+        groups = request_group.json()
+
+        path = os.path.join(path, name)
+
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        try:
+            for package in groups['packages']:
+                self.download_dataset(package, path, dictionary)
+                
+        except Exception as ex:
+            self._print_exception(ex)        
+
+    def download_groups(self, groups: list, path: str = os.getcwd(), dictionary: bool = True):
+        """Exibe os grupos de dados de acordo com seu nome
+        e baixa-os em pastas com o nome do respectivo
+        grupo de dados.
+
+        > Exemplo: download_groups(['biblioteca', 'ensino'])
+
+        Parâmetros
+        ----------
+        groups: list
+            lista com os nomes dos datasets desejados
+        path: str
+            o caminho da pasta onde serão adicionados os arquivos
+            (por padrão, a pasta atual)
+        dictionary: bool
+            flag para baixar o dicionário dos dados (por padrão, True)  
+        """
+
+        for group in groups:
+            self.download_group(group, path, dictionary)
