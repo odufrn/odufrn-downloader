@@ -54,7 +54,7 @@ class Dataset(Env):
         print("key")
         for dataset in self.available_datasets:
             for word in dataset.split('-'):
-                ratio = self._levenshtein([k for k in key], [d for d in word]):
+                ratio = self._levenshtein([k for k in key], [d for d in word])
                 if ratio > 0.9:
                     datasets.append(dataset)
 
