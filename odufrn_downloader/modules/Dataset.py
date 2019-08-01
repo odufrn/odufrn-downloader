@@ -165,3 +165,5 @@ class Dataset(Env):
             print("Não há nenhum conjunto de dados \
                     semelhante a \"{}\".".format(key))
             return
+
+        self.download_datasets(related)
