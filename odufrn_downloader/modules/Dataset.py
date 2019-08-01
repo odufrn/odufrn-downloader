@@ -29,7 +29,7 @@ class Dataset(Env):
         """Lista os conjuntos de dados."""
         self._print_list("conjuntos de dados", self.available_datasets)
 
-    def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
+    def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True, years: list = None):
         """Exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -45,6 +45,8 @@ class Dataset(Env):
             (por padrão, a pasta atual).
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
+        years: list
+            Define os anos dos dados que serão baixados, se existir realiza-se o download.
         """
 
         # Checa se o dataset está disponível
@@ -57,20 +59,31 @@ class Dataset(Env):
 
         try:
             for resource in dataset['resources']:
+                if years and len(years) == 0:
+                    break
+
+                year_find = False
+                if years:
+                    for key, year in enumerate(years):
+                        if str(year) in resource['name']:
+                            year_find = True
+                            del (years[key])
+
                 if not dictionary and 'Dicion' in resource['name']:
                     continue
 
-                print("Baixando {}...".format(resource['name']))
-                file_path = '{}/{}.{}'.format(
-                    path, resource['name'], resource['format'].lower()
-                )
+                if years is None or year_find:
+                    print("Baixando {}...".format(resource['name']))
+                    file_path = '{}/{}.{}'.format(
+                        path, resource['name'], resource['format'].lower()
+                    )
 
-                with open(file_path, 'wb') as f:
-                    f.write(requests.get(resource['url']).content)
+                    with open(file_path, 'wb') as f:
+                        f.write(requests.get(resource['url']).content)
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_datasets(self, datasets: list, path: str = os.getcwd(), dictionary: bool = True):
+    def download_datasets(self, datasets: list, path: str = os.getcwd(), dictionary: bool = True, years: list = None):
         """Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
@@ -85,8 +98,10 @@ class Dataset(Env):
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
         dictionary: bool
-            flag para baixar o dicionário dos dados (por padrão, True).
+            flag para baixar o dicionário dos dados (por padrão, True)
+        years: list
+            define os anos dos dados que serão baixados, se existir realiza-se o download.
         """
 
         for dataset in datasets:
-            self.download_dataset(dataset, path, dictionary)
+            self.download_dataset(dataset, path, dictionary, years)
