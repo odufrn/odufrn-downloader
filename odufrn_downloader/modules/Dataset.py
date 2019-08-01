@@ -21,21 +21,36 @@ class Dataset(Env):
         self.available_datasets = []
         self.load_datasets()
 
-    def _levenshtein(self, seq1, seq2):
-        """ see: https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance#Python
+    def _levenshtein(self, str1, str2):
+        """Calcula a similaridade entre duas palavras de acordo com a distância de Levenshtein.
+
+        Parâmetros
+        ----------
+        str1: list
+            lista de caracteres da primeira palavra
+        str2: list
+            lista de caracteres da segunda palavra
+
+        Retorno
+        -------
+        razão entre as palavras. Quanto mais próximo de 1, mais similares são as palavras.
+
+        Referência
+        ----------
+        https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance#Python
         """
         oneago = None
-        thisrow = list(range(1, len(seq2) + 1)) + [0]
-        for x in range(len(seq1)):
-            twoago, oneago, thisrow = oneago, thisrow, [0] * len(seq2) + [x + 1]
-            for y in range(len(seq2)):
+        thisrow = list(range(1, len(str2) + 1)) + [0]
+        for x in range(len(str1)):
+            twoago, oneago, thisrow = oneago, thisrow, [0] * len(str2) + [x + 1]
+            for y in range(len(str2)):
                 delcost = oneago[y] + 1
                 addcost = thisrow[y - 1] + 1
-                subcost = oneago[y - 1] + (seq1[x] != seq2[y])
+                subcost = oneago[y - 1] + (str1[x] != str2[y])
                 thisrow[y] = min(delcost, addcost, subcost)
 
-        lens = len(seq1)+len(seq2)
-        ratio = (lens - thisrow[len(seq2) - 1]) / lens
+        lens = len(str1)+len(str2)
+        ratio = (lens - thisrow[len(str2) - 1]) / lens
         return ratio
 
     def _search_related_datasets(self, key: str) -> list:
@@ -51,11 +66,10 @@ class Dataset(Env):
         lista de datasets com nome similares à palavra de interesse
         """
         datasets = []
-        print("key")
         for dataset in self.available_datasets:
             for word in dataset.split('-'):
                 ratio = self._levenshtein([k for k in key], [d for d in word])
-                if ratio > 0.9:
+                if ratio > 0.87:
                     datasets.append(dataset)
 
         return datasets
@@ -144,10 +158,7 @@ class Dataset(Env):
             palavra-chave com a qual será feita a busca
         """
         # Busca nomes de datasets semelhantes à palavra passada
-
         related = self._search_related_datasets(key)
-
-        print(related)
 
         # Imprime exceção se não houver datasets similares
         if len(related) == 0:
