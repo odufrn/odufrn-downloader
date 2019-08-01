@@ -136,7 +136,8 @@ class Dataset(Env):
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_datasets(self, datasets: list, path: str = os.getcwd(), dictionary: bool = True, years: list = None):
+    def download_datasets(self, datasets: list, path: str = os.getcwd(),
+                          dictionary: bool = True, years: list = None):
         """Exibe os conjuntos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
