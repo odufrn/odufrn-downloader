@@ -163,7 +163,7 @@ class Dataset(Env):
         # Imprime exceção se não houver datasets similares
         if len(related) == 0:
             print("Não há nenhum conjunto de dados \
-                    semelhante a \"{}\".".format(key))
+semelhante a \"{}\".".format(key))
             return
 
         self.download_datasets(related)
