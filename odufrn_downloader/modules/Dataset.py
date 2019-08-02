@@ -21,7 +21,7 @@ class Dataset(Env):
         self.available_datasets = []
         self.load_datasets()
 
-    def _levenshtein(self, str1, str2):
+    def _levenshtein(self, str1: list, str2: list) -> float:
         """Calcula a similaridade entre duas palavras de acordo com a distância de Levenshtein.
 
         Parâmetros
@@ -82,7 +82,8 @@ class Dataset(Env):
         """Lista os conjuntos de dados."""
         self._print_list("conjuntos de dados", self.available_datasets)
 
-    def download_dataset(self, name: str, path: str = os.getcwd(), dictionary: bool = True, years: list = None):
+    def download_dataset(self, name: str, path: str = os.getcwd(),
+                         dictionary: bool = True, years: list = None):
         """Exibe conjunto de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
