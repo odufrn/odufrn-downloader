@@ -122,7 +122,7 @@ class Dataset(Env, LevenshteinMixin):
             palavra-chave com a qual será feita a busca
         """
         # Busca nomes de datasets semelhantes à palavra passada
-        related = self.search_related(keyword)
+        related = self.search_related(keyword, self.available_datasets)
 
         # Imprime exceção se não houver datasets similares
         if len(related) == 0:
