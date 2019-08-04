@@ -183,3 +183,23 @@ semelhante a \"{}\".".format(key))
             return
 
         self.download_datasets(related)
+        
+    def download_all(self, path: str = os.getcwd(),
+                          dictionary: bool = True, years: list = None):
+        """Exibe os todos conjuntos de dados e baixa-os 
+        em pastas com o nome do respectivo conjunto de dado.
+
+        > Exemplo: download_all(dictionary = False, years = [2009, 2010])
+
+        Parâmetros
+        ----------
+        path: str
+            o caminho da pasta onde serão adicionados os arquivos
+            (por padrão, a pasta atual).
+        dictionary: bool
+            flag para baixar o dicionário dos dados (por padrão, True)
+        years: list
+            define os anos dos dados que serão baixados, se existir realiza-se o download.
+        """
+        
+        return self.download_datasets(self.available_datasets, path, dictionary, years)
