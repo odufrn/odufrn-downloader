@@ -150,4 +150,4 @@ class Dataset(Env, LevenshteinMixin):
             define os anos dos dados que serão baixados, se existir realiza-se o download.
         """
         
-        return self.download_datasets(self.available_datasets, path, dictionary, years)
+        self.download_datasets(self.available_datasets, path, dictionary, years)
