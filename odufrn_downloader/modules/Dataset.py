@@ -111,10 +111,10 @@ class Dataset(Env, LevenshteinMixin):
             self.download_dataset(dataset, path, dictionary, years)
 
     def search_related_datasets(self, keyword: str) -> list:
-        """Baixa conjuntos de dados que possuam nomes
+        """Procura os conjuntos de dados que possuam nomes
         semelhantes à palavra recebida.
 
-        > Exemplo: download_related_datasets('discente')
+        > Exemplo: search_related_datasets('discente')
 
         Parâmetros
         ----------
