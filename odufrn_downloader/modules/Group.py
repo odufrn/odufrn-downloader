@@ -71,7 +71,7 @@ class Group(Dataset):
         Parâmetros
         ----------
         groups: list
-            lista com os nomes dos datasets desejados
+            lista com os nomes dos grupos desejados
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)

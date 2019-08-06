@@ -120,7 +120,7 @@ ufrn_data.list_datasets()
 ## search_related_datasets
 Retorna uma lista de conjuntos de dados relacionados a uma entrada.
 Atualmente usa-se o cálculo de Levenshtein para verificar a similaridade
-entre a entrada e os nomes dos datasets.
+entre a entrada e os nomes dos _datasets_.
 
 **Parâmetros**:
 

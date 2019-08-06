@@ -9,7 +9,6 @@ nav:
         - guia-geral.md
         - guia-dataset.md
         - guia-group.md
-    - Sobre: sobre.md
 
 repo_url: https://github.com/odufrn/odufrn-downloader
 
