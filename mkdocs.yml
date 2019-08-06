@@ -1,0 +1,16 @@
+site_name: odufrn-downloader
+site_url: https://github.com/odufrn/odufrn-downloader
+site_description: Pacote para baixar os dados do portal de dados abertos da UFRN.
+site_author: Open Data UFRN
+
+nav:
+    - Instalação: index.md
+    - Guia de uso:
+        - guia-geral.md
+        - guia-dataset.md
+        - guia-group.md
+    - Sobre: sobre.md
+
+repo_url: https://github.com/odufrn/odufrn-downloader
+
+theme: readthedocs
