@@ -7,7 +7,7 @@ from odufrn_downloader import ODUFRNDownloader
 
 def assert_console(output):
     """ Recebe função que printa algo na tela e realiza assert
-    que verifica se foi printado """
+    que verifica se foi printado."""
     unit = unittest.TestCase()
     capturedOutput = io.StringIO()
     sys.stdout = capturedOutput
