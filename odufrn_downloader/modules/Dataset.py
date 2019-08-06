@@ -137,7 +137,7 @@ class Dataset(Env, LevenshteinMixin):
         """Exibe os todos conjuntos de dados e baixa-os 
         em pastas com o nome do respectivo conjunto de dado.
 
-        > Exemplo: download_all(dictionary = False, years = [2009, 2010])
+        > Exemplo: download_all(dictionary = False, years = list(range(2009, 2014)))
 
         Parâmetros
         ----------
