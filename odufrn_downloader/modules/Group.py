@@ -64,9 +64,8 @@ class Group(Dataset):
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_groups(
-        self, groups: list, path: str = os.getcwd(), dictionary: bool = True
-    ):
+    def download_groups(self, groups: list,
+                        path: str = os.getcwd(), dictionary: bool = True):
         """Exibe os grupos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         grupo de dados.

@@ -136,10 +136,8 @@ class Dataset(Env, LevenshteinMixin):
 
         return related
 
-    def download_all(
-        self, path: str = os.getcwd(),
-        dictionary: bool = True, years: list = None
-    ):
+    def download_all(self, path: str = os.getcwd(),
+                     dictionary: bool = True, years: list = None):
         """Exibe os todos conjuntos de dados e baixa-os
         em pastas com o nome do respectivo conjunto de dado.
 
