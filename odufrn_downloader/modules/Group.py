@@ -10,7 +10,8 @@ class Group(Dataset):
     url_group: str
         a url para a consulta de grupos de conjuntos de dados da API da UFRN.
     available_groups: list
-        lista de grupos de conjuntos de dados que estão disponíveis para download.
+        lista de grupos de conjuntos de dados que estão disponíveis
+        para download.
     """
 
     def __init__(self):
@@ -28,7 +29,9 @@ class Group(Dataset):
         """Lista os grupos de dados."""
         self._print_list("grupos de dados", self.available_groups)
 
-    def download_group(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
+    def download_group(
+        self, name: str, path: str = os.getcwd(), dictionary: bool = True
+    ):
         """Exibe grupo de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         grupo de dados.
@@ -61,7 +64,9 @@ class Group(Dataset):
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_groups(self, groups: list, path: str = os.getcwd(), dictionary: bool = True):
+    def download_groups(
+        self, groups: list, path: str = os.getcwd(), dictionary: bool = True
+    ):
         """Exibe os grupos de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         grupo de dados.

@@ -48,12 +48,15 @@ class Dataset(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            Define os anos dos dados que serão baixados, se existir realiza-se o download.
+            Define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         """
 
         # Checa se o dataset está disponível
         if not (name in self.available_datasets):
-            print("O conjunto de dados \"{}\" não foi encontrado.".format(name))
+            print(
+                "O conjunto de dados \"{}\" não foi encontrado.".format(name)
+            )
             return
 
         dataset = self._request_get(self.url_dataset + name)
@@ -104,7 +107,8 @@ class Dataset(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True)
         years: list
-            define os anos dos dados que serão baixados, se existir realiza-se o download.
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         """
 
         for dataset in datasets:
@@ -129,12 +133,13 @@ class Dataset(Env, LevenshteinMixin):
             print("Não há nenhum conjunto de dados \
                 semelhante a \"{}\".".format(keyword))
             return
-
         self.download_datasets(related)
-        
-    def download_all(self, path: str = os.getcwd(),
-                          dictionary: bool = True, years: list = None):
-        """Exibe os todos conjuntos de dados e baixa-os 
+
+    def download_all(
+        self, path: str = os.getcwd(),
+        dictionary: bool = True, years: list = None
+    ):
+        """Exibe os todos conjuntos de dados e baixa-os
         em pastas com o nome do respectivo conjunto de dado.
 
         > Exemplo: download_all(dictionary = False, years = [2009, 2010])
@@ -147,7 +152,10 @@ class Dataset(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True)
         years: list
-            define os anos dos dados que serão baixados, se existir realiza-se o download.
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         """
-        
-        self.download_datasets(self.available_datasets, path, dictionary, years)
+
+        self.download_datasets(
+            self.available_datasets, path, dictionary, years
+        )
