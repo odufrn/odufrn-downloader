@@ -27,6 +27,23 @@ class Group(Dataset):
     def list_groups(self):
         """Lista os grupos de dados."""
         self._print_list("grupos de dados", self.available_groups)
+        
+    def get_datasets_group(self, name: str):
+        """Lista os datasets que possuem no grupo
+        
+        Parâmetros
+        ----------
+        name: str
+            nome do grupo
+        """
+        
+        if not (name in self.available_groups):
+            print("O grupo de dados \"{}\" não foi encontrado.".format(name))
+            return
+        
+        datasets = self._request_get(self.url_group + name)
+        
+        return datasets['packages']
 
     def download_group(self, name: str, path: str = os.getcwd(), dictionary: bool = True):
         """Exibe grupo de dados de acordo com seu nome
@@ -46,7 +63,6 @@ class Group(Dataset):
             flag para baixar o dicionário dos dados (por padrão, True)
         """
 
-        # Checa se o grupo está disponível
         if not (name in self.available_groups):
             print("O grupo de dados \"{}\" não foi encontrado.".format(name))
             return
