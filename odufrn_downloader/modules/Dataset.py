@@ -33,8 +33,7 @@ class Dataset(Env, LevenshteinMixin):
     def download_dataset(self, name: str, path: str = os.getcwd(),
                          dictionary: bool = True, years: list = None):
         """Exibe conjunto de dados de acordo com seu nome
-        e baixa-os em pastas com o nome do respectivo        years: list
-            define os anos dos dados que serão baixados, se existir
+        e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
         > Exemplo: download_dataset('acervo-biblioteca')
