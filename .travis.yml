@@ -5,6 +5,7 @@ python:
 fail_fast: true
 install:
   - python setup.py install
+  - pip install pycodestyle
 before_install:
   - pip install --upgrade pip
 script:
