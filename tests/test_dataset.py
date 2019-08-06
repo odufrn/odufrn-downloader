@@ -1,4 +1,4 @@
-from .utils import *
+from utils import *
 
 
 class Dataset(unittest.TestCase):
@@ -9,7 +9,7 @@ class Dataset(unittest.TestCase):
     def test_can_list_datasets(self):
         """ Verifica se a lista de datasets é impressa na tela """
         assert_console(self.ufrn_data.list_datasets)
-    
+
     def test_can_load_datasets(self):
         """ Verifica se a lista de datasets é carregada no objeto """
         self.ufrn_data.load_datasets()
