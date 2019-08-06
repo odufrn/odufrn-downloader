@@ -1,4 +1,4 @@
-from utils import *
+from .utils import *
 
 
 class Dataset(unittest.TestCase):
@@ -14,7 +14,6 @@ class Dataset(unittest.TestCase):
         """ Verifica se a lista de datasets é carregada no objeto """
         self.ufrn_data.load_datasets()
         self.assertTrue(len(self.ufrn_data.available_datasets) > 0)
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,4 @@
-from utils import *
+from .utils import *
 
 class Group(unittest.TestCase):
     def setUp(self):
