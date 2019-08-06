@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Open Data UFRN">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Dataset - odufrn-downloader</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dataset";
+    var mkdocs_page_input_path = "guia-dataset.md";
+    var mkdocs_page_url = "/odufrn/odufrn-downloader/guia-dataset/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> odufrn-downloader</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Instalação</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Guia de uso</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guia-geral/">Geral</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Dataset</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#dataset">Dataset</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#download_all">download_all</a></li>
+        
+            <li><a class="toctree-l4" href="#download_dataset">download_dataset</a></li>
+        
+            <li><a class="toctree-l4" href="#download_datasets">download_datasets</a></li>
+        
+            <li><a class="toctree-l4" href="#download_from_file">download_from_file</a></li>
+        
+            <li><a class="toctree-l4" href="#load_datasets">load_datasets</a></li>
+        
+            <li><a class="toctree-l4" href="#list_datasets">list_datasets</a></li>
+        
+            <li><a class="toctree-l4" href="#search_related_datasets">search_related_datasets</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guia-group/">Group</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">odufrn-downloader</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Guia de uso &raquo;</li>
+        
+      
+    
+    <li>Dataset</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/odufrn/odufrn-downloader/edit/master/docs/guia-dataset.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dataset">Dataset</h1>
+<p>Os métodos aqui apresentados são referentes ao uso de <em>datasets</em> (listagem, download, etc).</p>
+<h2 id="download_all">download_all</h2>
+<p>Baixa todos os conjuntos de dados disponíveis.</p>
+<p><strong>Parâmetros</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Valor padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td><code>os.getcwd()</code></td>
+<td>O caminho da pasta onde serão adicionados os arquivos.</td>
+</tr>
+<tr>
+<td><code>dictionary</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Indica se é para baixar o dicionário dos dados.</td>
+</tr>
+<tr>
+<td><code>years</code></td>
+<td><code>list[int]</code></td>
+<td><code>None</code></td>
+<td>Define os anos dos dados que serão baixados.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Baixar todos os datasets de 2013 a 2018, sem dicionário
+ufrn_data.download_all(dictionary=False, years=list(range(2013,2019)))
+</code></pre>
+
+<h2 id="download_dataset">download_dataset</h2>
+<p>Baixa o conjunto de dados desejado.</p>
+<p><strong>Parâmetros</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Valor padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>str</code></td>
+<td>-</td>
+<td>Nome do dataset que se deseja baixar.</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td><code>os.getcwd()</code></td>
+<td>O caminho da pasta onde serão adicionados os arquivos.</td>
+</tr>
+<tr>
+<td><code>dictionary</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Indica se é para baixar o dicionário dos dados.</td>
+</tr>
+<tr>
+<td><code>years</code></td>
+<td><code>list[int]</code></td>
+<td><code>None</code></td>
+<td>Define os anos dos dados que serão baixados.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Baixar os datasets de discentes sem dicionário
+ufrn_data.download_dataset('discentes', dictionary=False)
+</code></pre>
+
+<h2 id="download_datasets">download_datasets</h2>
+<p>Baixa uma lista de conjuntos de dados desejado.</p>
+<p><strong>Parâmetros</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Valor padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datasets</code></td>
+<td><code>list[str]</code></td>
+<td>-</td>
+<td>Lista com os nomes dos datasets desejados.</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td><code>os.getcwd()</code></td>
+<td>O caminho da pasta onde serão adicionados os arquivos.</td>
+</tr>
+<tr>
+<td><code>dictionary</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Indica se é para baixar o dicionário dos dados.</td>
+</tr>
+<tr>
+<td><code>years</code></td>
+<td><code>list[int]</code></td>
+<td><code>None</code></td>
+<td>Define os anos dos dados que serão baixados.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Baixar os datasets de discentes e seus dados complementares, sem dicionários
+ufrn_data.download_datasets(['discentes', 'dados-complementares-de-discentes'], dictionary=False)
+</code></pre>
+
+<h2 id="download_from_file">download_from_file</h2>
+<p>Baixa os conjuntos de dados que estão escritos em um arquivo de texto.</p>
+<p><strong>Parâmetros</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Valor padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td><code>str</code></td>
+<td>-</td>
+<td>Nome do arquivo que contêm os datasets.</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td><code>os.getcwd()</code></td>
+<td>O caminho da pasta onde serão adicionados os arquivos.</td>
+</tr>
+<tr>
+<td><code>dictionary</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Indica se é para baixar o dicionário dos dados.</td>
+</tr>
+<tr>
+<td><code>years</code></td>
+<td><code>list[int]</code></td>
+<td><code>None</code></td>
+<td>Define os anos dos dados que serão baixados.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Baixar os datasets escritos em um arquivo
+ufrn_data.download_from_file('discentes_ufrn.txt')
+</code></pre>
+
+<p><strong>Observação</strong>: Cada <em>dataset</em> deve ser declarado em uma linha, dessa forma, um arquivo com os <em>datasets</em> de discentes ficaria assim ("discentes_ufrn.txt"):</p>
+<pre><code class="text">discentes
+dados-complementares-de-discentes
+dados-socio-economicos-de-discentes
+</code></pre>
+
+<h2 id="load_datasets">load_datasets</h2>
+<p>Atualiza a lista de datasets disponíveis. A lista com esses valores é a variável <code>available_datasets</code>.</p>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Atualizando a lista de datasets disponíveis
+ufrn_data.load_datasets()
+# Acessando a lista de datasets disponíveis
+ufrn_data.available_datasets
+</code></pre>
+
+<h2 id="list_datasets">list_datasets</h2>
+<p>Lista os conjuntos de dados. Apresenta os elementos presentes na lista <code>available_datasets</code>.</p>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Apresentando a lista de datasets disponíveis
+ufrn_data.list_datasets()
+</code></pre>
+
+<h2 id="search_related_datasets">search_related_datasets</h2>
+<p>Retorna uma lista de conjuntos de dados relacionados a uma entrada.
+Atualmente usa-se o cálculo de Levenshtein para verificar a similaridade
+entre a entrada e os nomes dos <em>datasets</em>.</p>
+<p><strong>Parâmetros</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Valor padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keyword</code></td>
+<td><code>str</code></td>
+<td>-</td>
+<td>Palavra-chave com a qual será feita a busca.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Procurar datasets relacionados a discente
+list_discentes = ufrn_data.search_related_datasets('discente')
+print(list_discentes)
+
+# Output:
+# ['dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes', 'discentes']
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guia-group/" class="btn btn-neutral float-right" title="Group">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../guia-geral/" class="btn btn-neutral" title="Geral"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/odufrn/odufrn-downloader/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../guia-geral/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../guia-group/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
