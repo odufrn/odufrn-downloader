@@ -37,6 +37,7 @@ class Group(Dataset):
             nome do grupo
         """
         
+        # Checa se o grupo está disponível
         if not (name in self.available_groups):
             print("O grupo de dados \"{}\" não foi encontrado.".format(name))
             return
@@ -63,6 +64,7 @@ class Group(Dataset):
             flag para baixar o dicionário dos dados (por padrão, True)
         """
 
+        # Checa se o grupo está disponível
         if not (name in self.available_groups):
             print("O grupo de dados \"{}\" não foi encontrado.".format(name))
             return
