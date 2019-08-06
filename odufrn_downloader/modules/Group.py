@@ -71,7 +71,7 @@ class Group(Dataset):
         Parâmetros
         ----------
         groups: list
-            lista com os nomes dos datasets desejados
+            lista com os nomes dos grupos desejados
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual)
@@ -81,3 +81,23 @@ class Group(Dataset):
 
         for group in groups:
             self.download_group(group, path, dictionary)
+
+    def search_related_groups(self, keyword: str) -> list:
+        """Procura os grupos de conjuntos de dados que possuam nomes
+        semelhantes à palavra recebida.
+
+        > Exemplo: search_related_groups('pesquisa')
+
+        Parâmetros
+        ----------
+        keyword: str
+            palavra-chave com a qual será feita a busca
+        """
+        # Busca nomes de grupos semelhantes à palavra passada
+        related = self.search_related(keyword, self.available_groups)
+
+        # Imprime exceção se não houver grupos similares
+        if not len(related):
+            print("Não há nenhum grupo de conjunto de dados semelhante a \"{}\".".format(keyword))
+
+        return related

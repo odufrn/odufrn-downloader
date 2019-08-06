@@ -8,7 +8,8 @@ class File(Dataset):
     def __init__(self):
         super().__init__()
 
-    def download_from_file(self, filename: str, path: str = os.getcwd(), dictionary: bool = True):
+    def download_from_file(self, filename: str, path: str = os.getcwd(),
+                           dictionary: bool = True, years: list = None):
         """Baixa os conjuntos de dados que estão escritos
         em um arquivo de texto.
 
@@ -23,10 +24,12 @@ class File(Dataset):
             (por padrão, a pasta atual)
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True)
+        years: list
+            define os anos dos dados que serão baixados, se existir realiza-se o download.
         """
         try:
             with open(filename, 'r') as file:
                 for datasetName in file:
-                    self.download_dataset(datasetName.rstrip(), path, dictionary)
+                    self.download_dataset(datasetName.rstrip(), path, dictionary, years)
         except IOError as ex:
             self._print_exception(ex)

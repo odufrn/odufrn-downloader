@@ -110,11 +110,11 @@ class Dataset(Env, LevenshteinMixin):
         for dataset in datasets:
             self.download_dataset(dataset, path, dictionary, years)
 
-    def download_related_datasets(self, keyword: str):
-        """Baixa conjuntos de dados que possuam nomes
+    def search_related_datasets(self, keyword: str) -> list:
+        """Procura os conjuntos de dados que possuam nomes
         semelhantes à palavra recebida.
 
-        > Exemplo: download_related_datasets('discente')
+        > Exemplo: search_related_datasets('discente')
 
         Parâmetros
         ----------
@@ -125,19 +125,17 @@ class Dataset(Env, LevenshteinMixin):
         related = self.search_related(keyword, self.available_datasets)
 
         # Imprime exceção se não houver datasets similares
-        if len(related) == 0:
-            print("Não há nenhum conjunto de dados \
-                semelhante a \"{}\".".format(keyword))
-            return
+        if not len(related):
+            print("Não há nenhum conjunto de dados semelhante a \"{}\".".format(keyword))
 
-        self.download_datasets(related)
+        return related
         
     def download_all(self, path: str = os.getcwd(),
                           dictionary: bool = True, years: list = None):
         """Exibe os todos conjuntos de dados e baixa-os 
         em pastas com o nome do respectivo conjunto de dado.
 
-        > Exemplo: download_all(dictionary = False, years = [2009, 2010])
+        > Exemplo: download_all(dictionary = False, years = list(range(2009, 2014)))
 
         Parâmetros
         ----------

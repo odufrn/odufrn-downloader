@@ -1,23 +1,11 @@
-# Open Data UFRN Downloader
-[![PyPI version](https://badge.fury.io/py/odufrn-downloader.svg)](https://badge.fury.io/py/odufrn-downloader)
-
-Pacote para baixar os dados do portal de [dados abertos da UFRN](dados.ufrn.br).
-
-## Instalação
-```bash
-pip install odufrn-downloader
-```
-
-## Guia de uso
-Veja a documentação [clicando aqui](https://odufrn.github.io/odufrn-downloader/).
-
+# Geral
 Como começar a usar o pacote:
 ```python
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 ```
 
-### Métodos
+# Métodos
 Abaixo estão listados os métodos disponíveis no pacote:
 
 | Método | Descrição |
@@ -34,23 +22,3 @@ Abaixo estão listados os métodos disponíveis no pacote:
 | `list_groups` | Lista os grupos de conjuntos de dados. |
 | `search_related_datasets` | Retorna uma lista de conjuntos de dados relacionados a uma entrada. |
 | `search_related_groups` | Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada. |
-
-### Exemplo
-```python
-from odufrn_downloader import ODUFRNDownloader
-ufrn_data = ODUFRNDownloader()
-
-# Lista os conjuntos de dados
-ufrn_data.list_datasets()
-
-# Baixa um conjunto de dados
-ufrn_data.download_dataset('discentes')
-
-# Baixa uma lista de conjuntos de dados
-datasets = ['discentes', 'dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes']
-ufrn_data.download_datasets(datasets)
-```
-
-----------------
-Projeto inicialmente idealizado por [Ítalo Epifânio](https://github.com/itepifanio).
-Link do projeto original [aqui](https://github.com/professorCheatSheet/dadosAbertosUFRNDownloader).
