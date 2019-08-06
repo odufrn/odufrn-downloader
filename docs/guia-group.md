@@ -1,3 +1,6 @@
+# Group
+Os métodos aqui apresentados são referentes ao uso de grupos de conjuntos de dados (listagem, download, etc).
+
 ## download_group
 Baixa um grupo de conjuntos de dados desejado.
 

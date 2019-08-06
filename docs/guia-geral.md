@@ -1,9 +1,11 @@
 # Geral
+Como começar a usar o pacote:
 ```python
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 ```
 
+# Métodos
 Abaixo estão listados os métodos disponíveis no pacote:
 
 | Método | Descrição |
