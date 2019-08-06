@@ -46,7 +46,3 @@ class Env(unittest.TestCase):
             print(e)
             result = False
         self.assertTrue(result)
-
-
-if __name__ == '__main__':
-    unittest.main()
