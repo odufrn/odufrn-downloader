@@ -15,5 +15,6 @@ class Dataset(unittest.TestCase):
         self.ufrn_data.load_datasets()
         self.assertTrue(len(self.ufrn_data.available_datasets) > 0)
 
+
 if __name__ == '__main__':
     unittest.main()
