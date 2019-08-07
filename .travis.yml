@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+fail_fast: true
+install:
+  - python setup.py install
+  - pip install pycodestyle
+before_install:
+  - pip install --upgrade pip
+script:
+  - find . -name \*.py -exec pycodestyle --ignore=E402 {} +
+  - python -m unittest -v

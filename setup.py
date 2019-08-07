@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="odufrn_downloader",
-    version="0.1.7",
+    version="0.2.0",
     author="Open Data UFRN",
     author_email="alvarofepipa@gmail.com",
     description="Open Data UFRN Downloader",

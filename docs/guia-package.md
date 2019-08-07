@@ -1,5 +1,5 @@
-# Dataset
-Os métodos aqui apresentados são referentes ao uso de _datasets_ (listagem, download, etc).
+# Package
+Os métodos aqui apresentados são referentes ao uso de pacotes (listagem, download, etc).
 
 ## download_all
 Baixa todos os conjuntos de dados disponíveis.
@@ -17,18 +17,18 @@ Baixa todos os conjuntos de dados disponíveis.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar todos os datasets de 2013 a 2018, sem dicionário
+# Baixar todos os packages de 2013 a 2018, sem dicionário
 ufrn_data.download_all(dictionary=False, years=list(range(2013,2019)))
 ```
 
-## download_dataset
-Baixa o conjunto de dados desejado.
+## download_package
+Baixa o pacote de dados desejado.
 
 **Parâmetros**:
 
 | Parâmetro | Tipo | Valor padrão | Descrição |
 | --------- | ---- | ------------ | --------- |
-| `name` | `str` | - | Nome do dataset que se deseja baixar. |
+| `name` | `str` | - | Nome do pacote que se deseja baixar. |
 | `path` | `str` | `os.getcwd()` | O caminho da pasta onde serão adicionados os arquivos. |
 | `dictionary` | `bool` | `True` | Indica se é para baixar o dicionário dos dados. |
 | `years` | `list[int]` | `None` | Define os anos dos dados que serão baixados. |
@@ -39,17 +39,17 @@ from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
 # Baixar os datasets de discentes sem dicionário
-ufrn_data.download_dataset('discentes', dictionary=False)
+ufrn_data.download_package('discentes', dictionary=False)
 ```
 
-## download_datasets
-Baixa uma lista de conjuntos de dados desejado.
+## download_packages
+Baixa uma lista de pacotes de dados desejado.
 
 **Parâmetros**:
 
 | Parâmetro | Tipo | Valor padrão | Descrição |
 | --------- | ---- | ------------ | --------- |
-| `datasets` | `list[str]` | - | Lista com os nomes dos datasets desejados. |
+| `packages` | `list[str]` | - | Lista com os nomes dos pacotes desejados. |
 | `path` | `str` | `os.getcwd()` | O caminho da pasta onde serão adicionados os arquivos. |
 | `dictionary` | `bool` | `True` | Indica se é para baixar o dicionário dos dados. |
 | `years` | `list[int]` | `None` | Define os anos dos dados que serão baixados. |
@@ -59,18 +59,18 @@ Baixa uma lista de conjuntos de dados desejado.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar os datasets de discentes e seus dados complementares, sem dicionários
-ufrn_data.download_datasets(['discentes', 'dados-complementares-de-discentes'], dictionary=False)
+# Baixar os packages de discentes e seus dados complementares, sem dicionários
+ufrn_data.download_packages(['discentes', 'dados-complementares-de-discentes'], dictionary=False)
 ```
             
 ## download_from_file
-Baixa os conjuntos de dados que estão escritos em um arquivo de texto.
+Baixa os pacotes de dados que estão escritos em um arquivo de texto.
 
 **Parâmetros**:
 
 | Parâmetro | Tipo | Valor padrão | Descrição |
 | --------- | ---- | ------------ | --------- |
-| `filename` | `str` | - | Nome do arquivo que contêm os datasets. |
+| `filename` | `str` | - | Nome do arquivo que contêm os pacotes. |
 | `path` | `str` | `os.getcwd()` | O caminho da pasta onde serão adicionados os arquivos. |
 | `dictionary` | `bool` | `True` | Indica se é para baixar o dicionário dos dados. |
 | `years` | `list[int]` | `None` | Define os anos dos dados que serão baixados. |
@@ -80,47 +80,47 @@ Baixa os conjuntos de dados que estão escritos em um arquivo de texto.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar os datasets escritos em um arquivo
+# Baixar os packages escritos em um arquivo
 ufrn_data.download_from_file('discentes_ufrn.txt')
 ```
 
-**Observação**: Cada _dataset_ deve ser declarado em uma linha, dessa forma, um arquivo com os _datasets_ de discentes ficaria assim ("discentes_ufrn.txt"):
+**Observação**: Cada pacote deve ser declarado em uma linha, dessa forma, um arquivo com os pacotes de discentes ficaria assim ("discentes_ufrn.txt"):
 ```text
 discentes
 dados-complementares-de-discentes
 dados-socio-economicos-de-discentes
 ```
 
-## load_datasets
-Atualiza a lista de datasets disponíveis. A lista com esses valores é a variável `available_datasets`.
+## load_packages
+Atualiza a lista de pacotes disponíveis. A lista com esses valores é a variável `available_packages`.
 
 **Exemplo**:
 ```python
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Atualizando a lista de datasets disponíveis
-ufrn_data.load_datasets()
-# Acessando a lista de datasets disponíveis
-ufrn_data.available_datasets
+# Atualizando a lista de packages disponíveis
+ufrn_data.load_packages()
+# Acessando a lista de packages disponíveis
+ufrn_data.available_packages
 ```
 
-## list_datasets
-Lista os conjuntos de dados. Apresenta os elementos presentes na lista `available_datasets`.
+## list_packages
+Lista os pacotes de dados. Apresenta os elementos presentes na lista `available_packages`.
 
 **Exemplo**:
 ```python
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Apresentando a lista de datasets disponíveis
-ufrn_data.list_datasets()
+# Apresentando a lista de packages disponíveis
+ufrn_data.list_packages()
 ```
 
-## search_related_datasets
-Retorna uma lista de conjuntos de dados relacionados a uma entrada.
+## search_related_packages
+Retorna uma lista de pacotes de dados relacionados a uma entrada.
 Atualmente usa-se o cálculo de Levenshtein para verificar a similaridade
-entre a entrada e os nomes dos _datasets_.
+entre a entrada e os nomes dos pacotes.
 
 **Parâmetros**:
 
@@ -133,8 +133,8 @@ entre a entrada e os nomes dos _datasets_.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Procurar datasets relacionados a discente
-list_discentes = ufrn_data.search_related_datasets('discente')
+# Procurar packages relacionados a discente
+list_discentes = ufrn_data.search_related_packages('discente')
 print(list_discentes)
 
 # Output:
