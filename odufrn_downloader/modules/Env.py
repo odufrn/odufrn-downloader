@@ -24,7 +24,7 @@ class Env(ABC):
         """Imprime mensagem padrão para exceções."""
         print('\033[91m{}\033[0m'.format(ex))
         print(
-            "Ocorreu algum erro durante o download do dataset. "
+            "Ocorreu algum erro durante o download do pacote. "
             "Verifique sua conexão, o nome do conjunto de dados "
             "e tente novamente."
         )

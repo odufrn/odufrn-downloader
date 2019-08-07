@@ -7,9 +7,9 @@ class LevenshteinMixin:
         Parâmetros
         ----------
         str1: list
-            lista de caracteres da primeira palavra
+            lista de caracteres da primeira palavra.
         str2: list
-            lista de caracteres da segunda palavra
+            lista de caracteres da segunda palavra.
 
         Retorno
         -------
@@ -34,18 +34,18 @@ class LevenshteinMixin:
         return ratio
 
     def search_related(self, keyword: str, input_list: list) -> list:
-        """Busca datasets com nomes semelhantes à palavra recebida.
+        """Busca na input_list os elementos com nomes semelhantes à keyword recebida.
 
         Parâmetros
         ----------
         keyword: str
-            palavra-chave com a qual será feita a busca
+            palavra-chave com a qual será feita a busca.
         input_list: list
-            lista com os valores que irá verificar a similaridade com keyword
+            lista com os valores que irá verificar a similaridade com keyword.
 
         Retorno
         -------
-        lista de valores com nome similares à palavra de interesse
+        lista de valores com nome similares à palavra de interesse.
         """
         filter_list = []
         for item in input_list:

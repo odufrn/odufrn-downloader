@@ -17,7 +17,7 @@ Baixa um grupo de conjuntos de dados desejado.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar os datasets do grupo de pessoas
+# Baixar os pacotes do grupo de pessoas
 ufrn_data.download_group('pessoas')
 ```
 
@@ -37,7 +37,7 @@ Baixa uma lista de grupos de conjuntos de dados desejado.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar os datasets de pesquisa e despesas e orçamentos, sem dicionários
+# Baixar os pacotes de pesquisa e despesas e orçamentos, sem dicionários
 ufrn_data.download_groups(['pesquisa', 'despesas-e-orcamento'], dictionary=False)
 ```
 
@@ -63,7 +63,7 @@ Lista os grupos de conjuntos de dados. Apresenta os elementos presentes na lista
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Apresentando a lista de grupos de datasets disponíveis
+# Apresentando a lista de grupos de pacotes disponíveis
 ufrn_data.list_groups()
 ```
 
@@ -83,7 +83,7 @@ entre a entrada e os nomes dos grupos.
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Procurar datasets relacionados a discente
+# Procurar grupos relacionados a pesquisa
 list_groups = ufrn_data.search_related_groups('pesquis')
 print(list_groups)
 

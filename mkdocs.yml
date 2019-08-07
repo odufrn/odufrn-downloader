@@ -7,7 +7,7 @@ nav:
     - Instalação: index.md
     - Guia de uso:
         - guia-geral.md
-        - guia-dataset.md
+        - guia-package.md
         - guia-group.md
 
 repo_url: https://github.com/odufrn/odufrn-downloader
