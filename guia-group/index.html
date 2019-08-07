@@ -63,7 +63,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../guia-dataset/">Dataset</a>
+    <a class="" href="../guia-package/">Package</a>
                 </li>
                 <li class=" current">
                     
@@ -170,7 +170,7 @@
 <pre><code class="python">from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar os datasets do grupo de pessoas
+# Baixar os pacotes do grupo de pessoas
 ufrn_data.download_group('pessoas')
 </code></pre>
 
@@ -211,7 +211,7 @@ ufrn_data.download_group('pessoas')
 <pre><code class="python">from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Baixar os datasets de pesquisa e despesas e orçamentos, sem dicionários
+# Baixar os pacotes de pesquisa e despesas e orçamentos, sem dicionários
 ufrn_data.download_groups(['pesquisa', 'despesas-e-orcamento'], dictionary=False)
 </code></pre>
 
@@ -233,7 +233,7 @@ ufrn_data.available_groups
 <pre><code class="python">from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Apresentando a lista de grupos de datasets disponíveis
+# Apresentando a lista de grupos de pacotes disponíveis
 ufrn_data.list_groups()
 </code></pre>
 
@@ -264,7 +264,7 @@ entre a entrada e os nomes dos grupos.</p>
 <pre><code class="python">from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Procurar datasets relacionados a discente
+# Procurar grupos relacionados a pesquisa
 list_groups = ufrn_data.search_related_groups('pesquis')
 print(list_groups)
 
@@ -279,7 +279,7 @@ print(list_groups)
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../guia-dataset/" class="btn btn-neutral" title="Dataset"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../guia-package/" class="btn btn-neutral" title="Package"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -307,7 +307,7 @@ print(list_groups)
           <a href="https://github.com/odufrn/odufrn-downloader/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../guia-dataset/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../guia-package/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
