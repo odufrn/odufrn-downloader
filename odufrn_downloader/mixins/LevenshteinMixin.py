@@ -36,7 +36,8 @@ class LevenshteinMixin:
         return ratio
 
     def search_related(self, keyword: str, input_list: list) -> list:
-        """Busca na input_list os elementos com nomes semelhantes à keyword recebida.
+        """Busca na input_list os elementos com nomes semelhantes
+        à keyword recebida.
 
         Parâmetros
         ----------

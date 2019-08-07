@@ -54,7 +54,7 @@ class Package(Env, LevenshteinMixin):
 
         # Checa se o pacote está disponível
         if not (name in self.available_packages):
-            print("O conjunto de dados \"{}\" não foi encontrado.".format(name))
+            print('O conjunto de dados "{}" não foi encontrado.'.format(name))
             return
 
         package = self._request_get(self.url_package + name)
@@ -135,7 +135,7 @@ class Package(Env, LevenshteinMixin):
         return related
 
     def download_all(self, path: str = os.getcwd(),
-                          dictionary: bool = True, years: list = None):
+                     dictionary: bool = True, years: list = None):
         """Exibe todos os pacotes de dados e baixa-os
         em pastas com o nome do respectivo conjunto de dado.
 
