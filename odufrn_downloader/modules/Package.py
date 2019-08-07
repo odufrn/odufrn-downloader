@@ -48,7 +48,8 @@ class Package(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            Define os anos dos dados que serão baixados, se existir realiza-se o download.
+            Define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         """
 
         # Checa se o pacote está disponível
@@ -104,9 +105,9 @@ class Package(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            define os anos dos dados que serão baixados, se existir realiza-se o download.
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         """
-
         for package in packages:
             self.download_package(package, path, dictionary, years)
 
@@ -126,16 +127,20 @@ class Package(Env, LevenshteinMixin):
 
         # Imprime exceção se não houver pacotes similares
         if not len(related):
-            print("Não há nenhum pacote de dados semelhante a \"{}\".".format(keyword))
+            print(
+                "Não há nenhum pacote de dados semelhante"
+                " a \"{}\".".format(keyword)
+            )
 
         return related
-        
+
     def download_all(self, path: str = os.getcwd(),
                           dictionary: bool = True, years: list = None):
         """Exibe todos os pacotes de dados e baixa-os
         em pastas com o nome do respectivo conjunto de dado.
 
-        > Exemplo: download_all(dictionary = False, years = list(range(2009, 2014)))
+        > Exemplo:
+            download_all(dictionary = False, years = list(range(2009, 2014)))
 
         Parâmetros
         ----------
@@ -145,7 +150,9 @@ class Package(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            define os anos dos dados que serão baixados, se existir realiza-se o download.
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         """
-        
-        self.download_packages(self.available_packages, path, dictionary, years)
+        self.download_packages(
+            self.available_packages, path, dictionary, years
+        )

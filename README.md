@@ -50,7 +50,3 @@ ufrn_data.download_package('discentes')
 packages = ['discentes', 'dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes']
 ufrn_data.download_packages(packages)
 ```
-
-----------------
-Projeto inicialmente idealizado por [Ítalo Epifânio](https://github.com/itepifanio).
-Link do projeto original [aqui](https://github.com/professorCheatSheet/dadosAbertosUFRNDownloader).

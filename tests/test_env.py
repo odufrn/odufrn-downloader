@@ -16,7 +16,11 @@ class Env(unittest.TestCase):
 
     def test_can_print_list(self):
         """ Verifica se consegue-se printar informação da lista no console """
-        assert_console(lambda: self.ufrn_data._print_list("conjuntos de dados", ['discente']))
+        assert_console(
+            lambda: self.ufrn_data._print_list(
+                "conjuntos de dados", ['discente']
+            )
+        )
 
     def test_can_load_list(self):
         """ Verifica se consegue carregar uma lista advinda de requisição """
@@ -27,18 +31,18 @@ class Env(unittest.TestCase):
         self.ufrn_data._make_dir(self.test_dir)
         self.assertTrue(os.path.exists(self.test_dir))
         shutil.rmtree(self.test_dir)
-    
+
     def test_can_request_get(self):
         """ Verifica se consegue-se realizar requisição get e retornar json """
         result = False
         try:
-            json.dumps(self.ufrn_data._request_get(self.ufrn_data.url_dataset + 'discentes')['resources'])
+            json.dumps(
+                self.ufrn_data._request_get(
+                    self.ufrn_data.url_dataset + 'discentes'
+                )['resources']
+            )
             result = True
         except ValueError as e:
             print(e)
             result = False
         self.assertTrue(result)
-
-
-if __name__ == '__main__':
-    unittest.main()
