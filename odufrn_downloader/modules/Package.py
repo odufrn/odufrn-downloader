@@ -4,44 +4,44 @@ from .Env import Env
 from ..mixins.LevenshteinMixin import LevenshteinMixin
 
 
-class Dataset(Env, LevenshteinMixin):
-    """Classe responsável pelo download de datasets.
+class Package(Env, LevenshteinMixin):
+    """Classe responsável pelo download de pacotes.
 
     Atributos
     ---------
-    url_dataset: str
-        a url para a consulta de datasets da API da UFRN.
-    available_datasets: list
-        lista de conjuntos de dados que estão disponíveis para download.
+    url_package: str
+        a url para a consulta de pacotes da API da UFRN.
+    available_packages: list
+        lista de pacotes de dados que estão disponíveis para download.
     """
 
     def __init__(self):
         super().__init__()
 
-        self.url_dataset = self.url_base + 'api/rest/dataset/'
-        self.available_datasets = []
-        self.load_datasets()
+        self.url_package = self.url_base + 'api/rest/dataset/'
+        self.available_packages = []
+        self.load_packages()
 
-    def load_datasets(self):
-        """Atualiza lista de datasets disponíveis."""
-        self.available_datasets = self._load_list('package_list')
+    def load_packages(self):
+        """Atualiza lista de pacotes disponíveis."""
+        self.available_packages = self._load_list('package_list')
 
-    def list_datasets(self):
+    def list_packages(self):
         """Lista os conjuntos de dados."""
-        self._print_list("conjuntos de dados", self.available_datasets)
+        self._print_list("pacotes de dados", self.available_packages)
 
-    def download_dataset(self, name: str, path: str = os.getcwd(),
+    def download_package(self, name: str, path: str = os.getcwd(),
                          dictionary: bool = True, years: list = None):
-        """Exibe conjunto de dados de acordo com seu nome
+        """Exibe pacote de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
-        > Exemplo: download_dataset('acervo-biblioteca')
+        > Exemplo: download_package('acervo-biblioteca')
 
         Parâmetros
         ----------
         name: str
-            nome do dataset.
+            nome do pacote.
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
@@ -52,18 +52,16 @@ class Dataset(Env, LevenshteinMixin):
             realiza-se o download.
         """
 
-        # Checa se o dataset está disponível
-        if not (name in self.available_datasets):
-            print(
-                "O conjunto de dados \"{}\" não foi encontrado.".format(name)
-            )
+        # Checa se o pacote está disponível
+        if not (name in self.available_packages):
+            print('O conjunto de dados "{}" não foi encontrado.'.format(name))
             return
 
-        dataset = self._request_get(self.url_dataset + name)
+        package = self._request_get(self.url_package + name)
         path = self._make_dir('{}/{}'.format(path, name))
 
         try:
-            for resource in dataset['resources']:
+            for resource in package['resources']:
                 if years and len(years) == 0:
                     break
 
@@ -88,49 +86,49 @@ class Dataset(Env, LevenshteinMixin):
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_datasets(self, datasets: list, path: str = os.getcwd(),
+    def download_packages(self, packages: list, path: str = os.getcwd(),
                           dictionary: bool = True, years: list = None):
-        """Exibe os conjuntos de dados de acordo com seu nome
+        """Exibe os pacotes de dados de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         conjunto de dado.
 
-        > Exemplo: download_datasets(['discentes', \
+        > Exemplo: download_packages(['discentes', \
             'dados-complementares-de-discentes'])
 
         Parâmetros
         ----------
-        datasets: list
-            lista com os nomes dos datasets desejados.
+        packages: list
+            lista com os nomes dos pacotes desejados.
         path: str
-            o caminho da pasta onde serão adicionados os arquivos
+            o caminho da pasta onde serão adicionados os arquivos.
             (por padrão, a pasta atual).
         dictionary: bool
-            flag para baixar o dicionário dos dados (por padrão, True)
+            flag para baixar o dicionário dos dados (por padrão, True).
         years: list
             define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
-        for dataset in datasets:
-            self.download_dataset(dataset, path, dictionary, years)
+        for package in packages:
+            self.download_package(package, path, dictionary, years)
 
-    def search_related_datasets(self, keyword: str) -> list:
-        """Procura os conjuntos de dados que possuam nomes
+    def search_related_packages(self, keyword: str) -> list:
+        """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
 
-        > Exemplo: search_related_datasets('discente')
+        > Exemplo: search_related_packages('discente')
 
         Parâmetros
         ----------
         keyword: str
-            palavra-chave com a qual será feita a busca
+            palavra-chave com a qual será feita a busca.
         """
-        # Busca nomes de datasets semelhantes à palavra passada
-        related = self.search_related(keyword, self.available_datasets)
+        # Busca nomes de pacotes semelhantes à palavra passada
+        related = self.search_related(keyword, self.available_packages)
 
-        # Imprime exceção se não houver datasets similares
+        # Imprime exceção se não houver pacotes similares
         if not len(related):
             print(
-                "Não há nenhum conjunto de dados semelhante"
+                "Não há nenhum pacote de dados semelhante"
                 " a \"{}\".".format(keyword)
             )
 
@@ -138,7 +136,7 @@ class Dataset(Env, LevenshteinMixin):
 
     def download_all(self, path: str = os.getcwd(),
                      dictionary: bool = True, years: list = None):
-        """Exibe os todos conjuntos de dados e baixa-os
+        """Exibe todos os pacotes de dados e baixa-os
         em pastas com o nome do respectivo conjunto de dado.
 
         > Exemplo:
@@ -150,12 +148,11 @@ class Dataset(Env, LevenshteinMixin):
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
         dictionary: bool
-            flag para baixar o dicionário dos dados (por padrão, True)
+            flag para baixar o dicionário dos dados (por padrão, True).
         years: list
             define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
-
-        self.download_datasets(
-            self.available_datasets, path, dictionary, years
+        self.download_packages(
+            self.available_packages, path, dictionary, years
         )

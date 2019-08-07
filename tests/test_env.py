@@ -38,7 +38,7 @@ class Env(unittest.TestCase):
         try:
             json.dumps(
                 self.ufrn_data._request_get(
-                    self.ufrn_data.url_dataset + 'discentes'
+                    self.ufrn_data.url_package + 'discentes'
                 )['resources']
             )
             result = True
