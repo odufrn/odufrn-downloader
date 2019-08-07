@@ -25,11 +25,14 @@ class File(Dataset):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True)
         years: list
-            define os anos dos dados que serão baixados, se existir realiza-se o download.
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download
         """
         try:
             with open(filename, 'r') as file:
                 for datasetName in file:
-                    self.download_dataset(datasetName.rstrip(), path, dictionary, years)
+                    self.download_dataset(
+                        datasetName.rstrip(), path, dictionary, years
+                    )
         except IOError as ex:
             self._print_exception(ex)
