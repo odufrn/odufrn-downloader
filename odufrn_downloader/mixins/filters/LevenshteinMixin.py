@@ -53,19 +53,15 @@ class LevenshteinMixin:
         -------
         lista de valores com nome similares à palavra de interesse.
         """
-        str1 = [k for k in keyword]
-
+        str1 = list(keyword)
         filter_list = []
+
         for item in input_list:
-            if split:
-                for word in item.split('-'):
-                    ratio = self.levenshtein(str1, [d for d in word])
-                    if ratio > 0.87:
-                        filter_list.append(item)
-                        continue
-            else:
-                ratio = self.levenshtein(str1, [d for d in item])
+            items = item.split('-') if split else [item]
+            for word in items:
+                ratio = self.levenshtein(str1, list(word))
                 if ratio > 0.87:
                     filter_list.append(item)
+                    continue
 
         return filter_list
