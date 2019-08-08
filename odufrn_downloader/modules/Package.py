@@ -1,10 +1,11 @@
 import os
 import requests
 from .Env import Env
-from ..mixins.LevenshteinMixin import LevenshteinMixin
+from ..mixins.FilterMixin import FilterMixin
+from .Tag import Tag
 
 
-class Package(Env, LevenshteinMixin):
+class Package(Env, FilterMixin):
     """Classe responsável pelo download de pacotes.
 
     Atributos
@@ -20,28 +21,16 @@ class Package(Env, LevenshteinMixin):
 
         self.url_package = self.url_base + 'api/rest/dataset'
         self.available_packages = []
-        self.available_tags = []
         self.load_packages()
-        self.load_tags()
+        self.tag = Tag()
 
     def load_packages(self):
         """Atualiza lista de pacotes disponíveis."""
         self.available_packages = self._load_list('package_list')
 
-    def load_tags(self):
-        """Atualiza lista de etiquetas disponíveis. """
-        self.available_tags = self._load_list('tag_list')
-
     def list_packages(self):
         """Lista os conjuntos de dados."""
         self._print_list("pacotes de dados", self.available_packages)
-
-    def search_by_tag(self, tag: str) -> list:
-        """ """
-        url = self.url_package + "?tag=" + tag
-        print(url)
-        packages = self._request_get(url)
-        return packages
 
     def download_package(self, name: str, path: str = os.getcwd(),
                          dictionary: bool = True, years: list = None):
@@ -61,7 +50,7 @@ class Package(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            define os anos dos dados que serão baixados, se existir
+            Define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
 
@@ -70,11 +59,11 @@ class Package(Env, LevenshteinMixin):
             print('O conjunto de dados "{}" não foi encontrado.'.format(name))
             return
 
-        package = self._request_get(self.url_package + name)
+        response = self._request_get(self.url_package + name)
         path = self._make_dir('{}/{}'.format(path, name))
 
         try:
-            for resource in package['resources']:
+            for resource in response['resources']:
                 if years and len(years) == 0:
                     break
 
@@ -125,7 +114,8 @@ class Package(Env, LevenshteinMixin):
             self.download_package(package, path, dictionary, years)
 
     def search_related_packages(self, keyword: str,
-                                search_tag: bool = False) -> list:
+                                search_tag: bool = False,
+                                simple_filter: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
 
@@ -135,21 +125,21 @@ class Package(Env, LevenshteinMixin):
         ----------
         keyword: str
             palavra-chave com a qual será feita a busca.
-        search_tag: bool
-            flag que indica se também devem ser buscados pacotes
-            relacionados a alguma etiqueta (por padrão, False)
+        simple_filter: bool = False
+            indica o uso de um filtro mais simples que o Levenshtein.
         """
         # Busca nomes de pacotes semelhantes à palavra passada
-        related = self.search_related(keyword, self.available_packages)
+        if simple_filter:
+            related = self.simple_search(keyword, self.available_packages)
+        else:
+            related = self.search_related(keyword, self.available_packages)
 
         # Busca nomes relacionados à tag, se for o caso
         if search_tag:
-            tags = self.search_related(keyword, self.available_tags)
-            for tag in tags:
-                packages = self.search_by_tag(tag)
-                for package in packages:
-                    if package not in related:
-                        related.append(package)
+            packages = self.tag.search_by_tag(keyword)
+            for package in packages:
+                if package not in related:
+                    related.append(package)
 
         # Imprime exceção se não houver pacotes similares
         if not len(related):

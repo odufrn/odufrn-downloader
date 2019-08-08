@@ -43,9 +43,9 @@ class Group(Package):
             print("O grupo de dados \"{}\" não foi encontrado.".format(name))
             return
 
-        datasets = self._request_get(self.url_group + name)
+        response = self._request_get(self.url_group + name)
 
-        return datasets['packages']
+        return response['packages']
 
     def download_group(self, name: str, path: str = os.getcwd(),
                        dictionary: bool = True):
@@ -103,7 +103,8 @@ class Group(Package):
         for group in groups:
             self.download_group(group, path, dictionary)
 
-    def search_related_groups(self, keyword: str) -> list:
+    def search_related_groups(self, keyword: str,
+                              simple_filter: bool = False) -> list:
         """Procura os grupos de pacotes que possuam nomes
         semelhantes à palavra recebida.
 
@@ -113,15 +114,20 @@ class Group(Package):
         ----------
         keyword: str
             palavra-chave com a qual será feita a busca.
+        simple_filter: bool = False
+            indica o uso de um filtro mais simples que o Levenshtein.
         """
         # Busca nomes de grupos semelhantes à palavra passada
-        related = self.search_related(keyword, self.available_groups)
+        if simple_filter:
+            related = self.simple_search(keyword, self.available_groups)
+        else:
+            related = self.search_related(keyword, self.available_groups)
 
         # Imprime exceção se não houver grupos similares
         if not len(related):
             print(
                 "Não há nenhum grupo de conjunto de dados"
-                "semelhante a \"{}\".".format(keyword)
+                " semelhante a \"{}\".".format(keyword)
             )
 
         return related

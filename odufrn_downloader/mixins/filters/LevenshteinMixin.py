@@ -35,7 +35,8 @@ class LevenshteinMixin:
         ratio = (lens - thisrow[len(str2) - 1]) / lens
         return ratio
 
-    def search_related(self, keyword: str, input_list: list) -> list:
+    def search_related(self, keyword: str, input_list: list,
+                       split: bool = True) -> list:
         """Busca na input_list os elementos com nomes semelhantes
         à keyword recebida.
 
@@ -52,10 +53,15 @@ class LevenshteinMixin:
         """
         filter_list = []
         for item in input_list:
-            for word in item.split('-'):
-                ratio = self.levenshtein(
-                    [k for k in keyword], [d for d in word]
-                )
+            str1 = [k for k in keyword]
+            if split:
+                for word in item.split('-'):
+                    ratio = self.levenshtein(str1, [d for d in word])
+                    if ratio > 0.87:
+                        filter_list.append(item)
+                        continue
+            else:
+                ratio = self.levenshtein(str1, [d for d in item])
                 if ratio > 0.87:
                     filter_list.append(item)
 
