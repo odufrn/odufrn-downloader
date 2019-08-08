@@ -71,7 +71,7 @@ class Group(Package):
 
         # Checa se o grupo está disponível
         if not (name in self.available_groups):
-            print("O grupo de pacotes \"{}\" não foi encontrado.".format(name))
+            self._print_not_found('Grupo', name)
             return
 
         groups = self._request_get(self.url_group + name)
