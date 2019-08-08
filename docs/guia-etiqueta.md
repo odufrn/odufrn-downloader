@@ -1,4 +1,4 @@
-# Etiqueta
+# Tag
 Os métodos aqui apresentados são referentes ao uso de etiquetas de pacotes (listagem, busca, etc).
 
 ## load_tags

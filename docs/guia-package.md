@@ -82,7 +82,6 @@ ufrn_data = ODUFRNDownloader()
 ufrn_data.download_packages_by_tag('graduacao')
 ```
 
-
 ## download_from_file
 Baixa os pacotes de dados que estão escritos em um arquivo de texto.
 

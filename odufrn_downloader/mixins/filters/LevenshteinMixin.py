@@ -47,15 +47,16 @@ class LevenshteinMixin:
         input_list: list
             lista com os valores que irá verificar a similaridade com keyword.
         split: bool
-            flag que indica se a palavra-chave deve ser dividida
+            flag que indica se a palavra-chave deve ser dividida.
 
         Retorno
         -------
         lista de valores com nome similares à palavra de interesse.
         """
+        str1 = [k for k in keyword]
+
         filter_list = []
         for item in input_list:
-            str1 = [k for k in keyword]
             if split:
                 for word in item.split('-'):
                     ratio = self.levenshtein(str1, [d for d in word])

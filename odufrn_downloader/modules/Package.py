@@ -14,6 +14,8 @@ class Package(Env, FilterMixin):
         a url para a consulta de pacotes da API da UFRN.
     available_packages: list
         lista de pacotes de dados que estão disponíveis para download.
+    tag: Tag
+        instância da classe Tag usada na classe
     """
 
     def __init__(self):
