@@ -38,10 +38,6 @@ class Tag(Env, FilterMixin):
         tag: str
             etiqueta desejada
         """
-        # Checa se a etiqueta está disponível
-        if not (tag in self.available_tags):
-            print('A etiqueta "{}" não foi encontrada.'.format(tag))
-            return
 
         tags = self.search_related(tag, self.available_tags, False)
         # Imprime exceção se não houver pacotes

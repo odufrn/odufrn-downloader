@@ -19,7 +19,7 @@ class Package(Env, FilterMixin):
     def __init__(self):
         super().__init__()
 
-        self.url_package = self.url_base + 'api/rest/dataset'
+        self.url_package = self.url_base + 'api/rest/dataset/'
         self.available_packages = []
         self.load_packages()
         self.tag = Tag()

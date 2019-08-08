@@ -20,5 +20,5 @@ class Tag(unittest.TestCase):
                                                            search_tag=True)
         expected = ['cursos-de-graduacao', 'cursos-de-pos-graduacao',
                     'programas-de-pos-graduacao', 'discentes', 'turmas',
-                    'cursos-da-ufrn', 'estruturas-curriculares']
+                    'cursos-ufrn', 'estruturas-curriculares']
         self.assertTrue(sorted(list_tags) == sorted(expected))
