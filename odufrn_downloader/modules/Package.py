@@ -128,8 +128,7 @@ class Package(Env, FilterMixin):
         simple_filter: bool = False
             indica o uso de um filtro mais simples que o Levenshtein.
         search_tag: bool
-            flag que indica se a palavra-chave deve ser usada como etiqueta.
-            também (por padrão, False).
+            flag que indica se a palavra-chave deve ser usada como etiqueta (por padrão, False).
         """
         # Busca nomes de pacotes semelhantes à palavra passada
         if simple_filter:
@@ -176,7 +175,7 @@ class Package(Env, FilterMixin):
             self.available_packages, path, dictionary, years
         )
 
-    def download_package_by_tag(self, tag: str, path: str = os.getcwd()):
+    def download_packages_by_tag(self, tag: str, path: str = os.getcwd()):
         """ Baixa pacotes pertencentes a uma etiqueta.
 
         Parâmetros

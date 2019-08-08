@@ -62,7 +62,27 @@ ufrn_data = ODUFRNDownloader()
 # Baixar os packages de discentes e seus dados complementares, sem dicionários
 ufrn_data.download_packages(['discentes', 'dados-complementares-de-discentes'], dictionary=False)
 ```
-            
+
+## download_packages_by_tag
+Baixa pacotes pertencentes a uma etiqueta.
+
+**Parâmetros**:
+
+| Parâmetro | Tipo | Valor padrão | Descrição |
+| --------- | ---- | ------------ | --------- |
+| `tag` | `str` | - | Etiqueta desejada. |
+| `path` | `str` | `os.getcwd()` | O caminho da pasta onde serão adicionados os arquivos. |
+
+**Exemplo**:
+```python
+from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Baixar os packages de discentes e seus dados complementares, sem dicionários
+ufrn_data.download_packages_by_tag('graduacao')
+```
+
+
 ## download_from_file
 Baixa os pacotes de dados que estão escritos em um arquivo de texto.
 
@@ -127,6 +147,8 @@ entre a entrada e os nomes dos pacotes.
 | Parâmetro | Tipo | Valor padrão | Descrição |
 | --------- | ---- | ------------ | --------- |
 | `keyword` | `str` | - | Palavra-chave com a qual será feita a busca. |
+| `simple_filter` | `bool` | `False` | Indica o uso de um filtro mais simples que o Levenshtein. |
+| `search_tag` | `bool` | `False` | Flag que indica se a palavra-chave deve ser usada como etiqueta. |
 
 **Exemplo**:
 ```python
