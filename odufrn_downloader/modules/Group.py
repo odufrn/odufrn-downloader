@@ -60,7 +60,7 @@ class Group(Package):
         name: str
             nome do grupo.
         years: list
-            Define os anos dos dados que serão baixados, se existir
+            define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         path: str
             o caminho da pasta onde serão adicionados os arquivos
@@ -97,7 +97,7 @@ class Group(Package):
         groups: list
             lista com os nomes dos grupos desejados.
         years: list
-            Define os anos dos dados que serão baixados, se existir
+            define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         path: str
             o caminho da pasta onde serão adicionados os arquivos

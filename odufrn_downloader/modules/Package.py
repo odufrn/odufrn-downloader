@@ -48,7 +48,7 @@ class Package(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            Define os anos dos dados que serão baixados, se existir
+            define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
 
@@ -62,9 +62,6 @@ class Package(Env, LevenshteinMixin):
 
         try:
             for resource in package['resources']:
-                if years and len(years) == 0:
-                    break
-
                 year_find = self._year_find(years, resource['name'])
 
                 if not dictionary and 'Dicion' in resource['name']:

@@ -92,8 +92,7 @@ class Env(ABC):
             True se o ano foi encontrado no nome do pacote se não false."""
         year_find = False
         if years:
-            for key, year in enumerate(years):
+            for _, year in enumerate(years):
                 if str(year) in package_name:
                     year_find = True
-                    del (years[key])
         return year_find
