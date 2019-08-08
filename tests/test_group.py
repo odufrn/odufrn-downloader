@@ -14,3 +14,10 @@ class Group(unittest.TestCase):
         """ Verifica se a lista de grupos é carregada no objeto """
         self.ufrn_data.load_groups()
         self.assertTrue(len(self.ufrn_data.available_groups) > 0)
+
+    def test_get_packages_group(self):
+        """ Verifica se a lista de datasets em um grupo é
+        retornada
+        """
+        group = 'despesas-e-orcamento'
+        self.assertTrue(len(self.ufrn_data.get_packages_group(group)) > 0)

@@ -29,6 +29,24 @@ class Group(Package):
         """Lista os grupos de pacotes."""
         self._print_list("grupos de dados", self.available_groups)
 
+    def get_packages_group(self, name: str):
+        """Lista os packages que possuem no grupo
+
+        Parâmetros
+        ----------
+        name: str
+            nome do grupo
+        """
+
+        # Checa se o grupo está disponível
+        if not (name in self.available_groups):
+            print("O grupo de dados \"{}\" não foi encontrado.".format(name))
+            return
+
+        datasets = self._request_get(self.url_group + name)
+
+        return datasets['packages']
+
     def download_group(self, name: str, path: str = os.getcwd(),
                        dictionary: bool = True):
         """Exibe grupo de pacotes de acordo com seu nome
