@@ -126,7 +126,7 @@ class Group(Package):
         if not len(related):
             print(
                 "Não há nenhum grupo de conjunto de dados"
-                "semelhante a \"{}\".".format(keyword)
+                " semelhante a \"{}\".".format(keyword)
             )
 
         return related
