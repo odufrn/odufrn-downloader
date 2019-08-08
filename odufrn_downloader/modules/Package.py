@@ -125,6 +125,9 @@ class Package(Env, FilterMixin):
         ----------
         keyword: str
             palavra-chave com a qual será feita a busca.
+        search_tag: bool
+            flag que indica se a palavra-chave deve ser usada como etiqueta 
+            também.
         simple_filter: bool = False
             indica o uso de um filtro mais simples que o Levenshtein.
         """
@@ -172,3 +175,19 @@ class Package(Env, FilterMixin):
         self.download_packages(
             self.available_packages, path, dictionary, years
         )
+
+    def download_package_by_tag(self, tag: str, path: str = os.getcwd()):
+        """ Baixa pacotes pertencentes a uma etiqueta.
+
+        Parâmetros
+        ----------
+        tag: str
+            etiqueta desejada.
+        path: str
+            o caminho da pasta onde serão adicionados os arquivos
+            (por padrão, a pasta atual).
+        """
+        # Recupera pacotes
+        packages = self.tag.search_by_tag(keyword)
+
+        self.download_packages(packages, path)

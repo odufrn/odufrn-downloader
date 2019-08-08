@@ -34,7 +34,19 @@ class Tag(Env, FilterMixin):
         tag: str
             etiqueta desejada
         """
+        # Checa se a etiqueta está disponível
+        if not (tag in self.available_tags):
+            print('A etiqueta "{}" não foi encontrada.'.format(tag))
+            return
+
         tags = self.search_related(tag, self.available_tags, False)
+        # Imprime exceção se não houver pacotes
+        if not len(tags):
+            print(
+                "Não há nenhuma etiqueta semelhante"
+                " a \"{}\".".format(tag)
+            )
+            
         packages = []
         for key in tags:
             url = self.url_tag + "/" + key
