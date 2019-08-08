@@ -137,3 +137,8 @@ class Group(Package):
             )
 
         return related
+
+    def print_files_from_group(self, name: str):
+        request = self._request_get(self.url_group + name)
+        for resource in request['packages']:
+            self.print_files_from_package(resource)
