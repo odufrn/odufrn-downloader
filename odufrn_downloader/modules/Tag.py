@@ -10,7 +10,7 @@ class Tag(Env, FilterMixin):
     Atributos
     ---------
     url_tag: str
-        a url para a consulta de pacotes da API da UFRN.
+        a url para a consulta de etiquetas da API da UFRN.
     available_tags: list
         lista de etiquetas que estão disponíveis.
     """
@@ -27,12 +27,17 @@ class Tag(Env, FilterMixin):
         self.available_tags = self._load_list('tag_list')
 
     def search_by_tag(self, tag: str) -> list:
-        """ """
+        """ Busca pacotes com base em etiqueta.
+
+        Parâmetros
+        ----------
+        tag: str
+            etiqueta desejada
+        """
         tags = self.search_related(tag, self.available_tags, False)
         packages = []
         for key in tags:
             url = self.url_tag + "/" + key
-            print(url)
             package = self._request_get(url)
             packages += package
 
