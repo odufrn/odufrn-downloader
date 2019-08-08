@@ -18,7 +18,7 @@ class Package(Env, LevenshteinMixin):
     def __init__(self):
         super().__init__()
 
-        self.url_package = self.url_base + 'api/rest/dataset/'
+        self.url_package = self.url_base + 'api/rest/dataset'
         self.available_packages = []
         self.available_tags = []
         self.load_packages()
@@ -35,6 +35,13 @@ class Package(Env, LevenshteinMixin):
     def list_packages(self):
         """Lista os conjuntos de dados."""
         self._print_list("pacotes de dados", self.available_packages)
+
+    def search_by_tag(self, tag: str) -> list:
+        """ """
+        url = self.url_package + "?tag=" + tag
+        print(url)
+        packages = self._request_get(url)
+        return packages
 
     def download_package(self, name: str, path: str = os.getcwd(),
                          dictionary: bool = True, years: list = None):
@@ -117,7 +124,7 @@ class Package(Env, LevenshteinMixin):
         for package in packages:
             self.download_package(package, path, dictionary, years)
 
-    def search_related_packages(self, keyword: str, 
+    def search_related_packages(self, keyword: str,
                                 search_tag: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
@@ -137,7 +144,12 @@ class Package(Env, LevenshteinMixin):
 
         # Busca nomes relacionados à tag, se for o caso
         if search_tag:
-            print()
+            tags = self.search_related(keyword, self.available_tags)
+            for tag in tags:
+                packages = self.search_by_tag(tag)
+                for package in packages:
+                    if package not in related:
+                        related.append(package)
 
         # Imprime exceção se não houver pacotes similares
         if not len(related):
