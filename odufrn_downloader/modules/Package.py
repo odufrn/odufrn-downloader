@@ -140,7 +140,7 @@ class Package(Env, FilterMixin):
 
         # Imprime exceção se não houver pacotes similares
         if not len(related):
-            self._print_not_relation(keyword, 'package')
+            self._print_not_relation(keyword, 'Package')
 
         return related
 

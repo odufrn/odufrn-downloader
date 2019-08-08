@@ -42,7 +42,7 @@ class Tag(Env, FilterMixin):
         tags = self.search_related(tag, self.available_tags, False)
         # Imprime exceção se não houver pacotes
         if not len(tags):
-            self._print_not_relation(tag, 'tag')
+            self._print_not_relation(tag, 'Tag')
 
         packages = []
         for key in tags:
