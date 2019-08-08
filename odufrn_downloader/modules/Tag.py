@@ -23,10 +23,10 @@ class Tag(Env, FilterMixin):
         self.load_tags()
 
     def load_tags(self):
-        """Atualiza lista de etiquetas disponíveis. """
+        """Atualiza lista de etiquetas disponíveis."""
         self.available_tags = self._load_list('tag_list')
 
-    def list_tags(self):
+    def print_tags(self):
         """Lista as etiquetas."""
         self._print_list("etiquetas", self.available_tags)
 
