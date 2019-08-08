@@ -46,6 +46,8 @@ class LevenshteinMixin:
             palavra-chave com a qual será feita a busca.
         input_list: list
             lista com os valores que irá verificar a similaridade com keyword.
+        split: bool
+            flag que indica se a palavra-chave deve ser dividida
 
         Retorno
         -------
