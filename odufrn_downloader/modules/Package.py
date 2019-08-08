@@ -188,7 +188,7 @@ class Package(Env, FilterMixin):
 
     def print_files_from_package(self, name: str):
         """Printa os arquivos do pacote.
-        
+
         Parâmetros
         ----------
         name: str
