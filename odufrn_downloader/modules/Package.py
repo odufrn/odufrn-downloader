@@ -114,8 +114,8 @@ class Package(Env, FilterMixin):
             self.download_package(package, path, dictionary, years)
 
     def search_related_packages(self, keyword: str,
-                                search_tag: bool = False,
-                                simple_filter: bool = False) -> list:
+                                simple_filter: bool = False,
+                                search_tag: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
 
@@ -125,11 +125,11 @@ class Package(Env, FilterMixin):
         ----------
         keyword: str
             palavra-chave com a qual será feita a busca.
-        search_tag: bool
-            flag que indica se a palavra-chave deve ser usada como etiqueta 
-            também.
         simple_filter: bool = False
             indica o uso de um filtro mais simples que o Levenshtein.
+        search_tag: bool
+            flag que indica se a palavra-chave deve ser usada como etiqueta.
+            também (por padrão, False).
         """
         # Busca nomes de pacotes semelhantes à palavra passada
         if simple_filter:
