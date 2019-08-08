@@ -26,6 +26,10 @@ class Tag(Env, FilterMixin):
         """Atualiza lista de etiquetas disponíveis. """
         self.available_tags = self._load_list('tag_list')
 
+    def list_tags(self):
+        """Lista as etiquetas."""
+        self._print_list("etiquetas", self.available_tags)
+
     def search_by_tag(self, tag: str) -> list:
         """ Busca pacotes com base em etiqueta.
 
@@ -46,7 +50,7 @@ class Tag(Env, FilterMixin):
                 "Não há nenhuma etiqueta semelhante"
                 " a \"{}\".".format(tag)
             )
-            
+
         packages = []
         for key in tags:
             url = self.url_tag + "/" + key
