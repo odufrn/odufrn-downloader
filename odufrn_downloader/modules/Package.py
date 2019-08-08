@@ -111,7 +111,8 @@ class Package(Env, FilterMixin):
         for package in packages:
             self.download_package(package, path, dictionary, years)
 
-    def search_related_packages(self, keyword: str, simple_filter: bool = False) -> list:
+    def search_related_packages(self, keyword: str,
+                                simple_filter: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
 

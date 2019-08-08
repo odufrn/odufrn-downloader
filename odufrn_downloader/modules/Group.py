@@ -103,7 +103,8 @@ class Group(Package):
         for group in groups:
             self.download_group(group, path, dictionary)
 
-    def search_related_groups(self, keyword: str, simple_filter: bool = False) -> list:
+    def search_related_groups(self, keyword: str,
+                              simple_filter: bool = False) -> list:
         """Procura os grupos de pacotes que possuam nomes
         semelhantes à palavra recebida.
 
