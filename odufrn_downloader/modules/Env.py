@@ -60,7 +60,7 @@ class Env(ABC):
 
         return path
 
-    def _request_get(self, url: str) -> requests.Response:
+    def _request_get(self, url: str) -> dict:
         """Realiza a requisição desejada e retorna os dados
         e o caminho formado para download.
 
@@ -71,7 +71,7 @@ class Env(ABC):
 
         Retorno
         ----------
-        requests.Response
+        dict:
             a resposta da requisição em json (dicionário)."""
         request_get = requests.get(url)
 
