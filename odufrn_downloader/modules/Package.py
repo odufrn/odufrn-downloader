@@ -15,7 +15,7 @@ class Package(Env, FilterMixin):
     available_packages: list
         lista de pacotes de dados que estão disponíveis para download.
     tag: Tag
-        instância da classe Tag usada na classe
+        instância da classe Tag usada na classe.
     """
 
     def __init__(self):
