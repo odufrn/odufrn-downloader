@@ -128,7 +128,8 @@ class Package(Env, FilterMixin):
         simple_filter: bool = False
             indica o uso de um filtro mais simples que o Levenshtein.
         search_tag: bool
-            flag que indica se a palavra-chave deve ser usada como etiqueta (por padrão, False).
+            flag que indica se a palavra-chave deve ser usada como etiqueta
+            (por padrão, False).
         """
         # Busca nomes de pacotes semelhantes à palavra passada
         if simple_filter:

@@ -1,5 +1,6 @@
 from .utils import *
 
+
 class Tag(unittest.TestCase):
     def setUp(self):
         """ Inicia novo objeto em todo os testes """
@@ -24,5 +25,6 @@ class Tag(unittest.TestCase):
         self.assertTrue(sorted(list_tags) == sorted(expected))
 
         packages = self.ufrn_data.search_by_tag('graduacao')
-        expected = ['cursos-de-graduacao', 'discentes', 'turmas', 'cursos-ufrn', 'estruturas-curriculares']
+        expected = ['cursos-de-graduacao', 'discentes', 'turmas',
+                    'cursos-ufrn', 'estruturas-curriculares']
         self.assertTrue(sorted(packages) == sorted(expected))
