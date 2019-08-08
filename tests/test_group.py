@@ -19,4 +19,5 @@ class Group(unittest.TestCase):
         """ Verifica se a lista de datasets em um grupo é
         retornada
         """
-        self.assertTrue(len(self.ufrn_data.get_packages_group('despesas-e-orcamento')) > 0)
+        group = 'despesas-e-orcamento'
+        self.assertTrue(len(self.ufrn_data.get_packages_group(group)) > 0)
