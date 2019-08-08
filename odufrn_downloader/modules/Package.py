@@ -1,10 +1,10 @@
 import os
 import requests
 from .Env import Env
-from ..mixins.LevenshteinMixin import LevenshteinMixin
+from ..mixins.FilterMixin import FilterMixin
 
 
-class Package(Env, LevenshteinMixin):
+class Package(Env, FilterMixin):
     """Classe responsável pelo download de pacotes.
 
     Atributos
@@ -57,11 +57,11 @@ class Package(Env, LevenshteinMixin):
             print('O conjunto de dados "{}" não foi encontrado.'.format(name))
             return
 
-        package = self._request_get(self.url_package + name)
+        response = self._request_get(self.url_package + name)
         path = self._make_dir('{}/{}'.format(path, name))
 
         try:
-            for resource in package['resources']:
+            for resource in response['resources']:
                 if years and len(years) == 0:
                     break
 
@@ -111,7 +111,7 @@ class Package(Env, LevenshteinMixin):
         for package in packages:
             self.download_package(package, path, dictionary, years)
 
-    def search_related_packages(self, keyword: str) -> list:
+    def search_related_packages(self, keyword: str, simple_filter: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
 
@@ -121,9 +121,14 @@ class Package(Env, LevenshteinMixin):
         ----------
         keyword: str
             palavra-chave com a qual será feita a busca.
+        simple_filter: bool = False
+            indica o uso de um filtro mais simples que o Levenshtein.
         """
         # Busca nomes de pacotes semelhantes à palavra passada
-        related = self.search_related(keyword, self.available_packages)
+        if simple_filter:
+            related = self.simple_search(keyword, self.available_packages)
+        else:
+            related = self.search_related(keyword, self.available_packages)
 
         # Imprime exceção se não houver pacotes similares
         if not len(related):
