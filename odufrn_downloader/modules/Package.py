@@ -20,11 +20,17 @@ class Package(Env, LevenshteinMixin):
 
         self.url_package = self.url_base + 'api/rest/dataset/'
         self.available_packages = []
+        self.available_tags = []
         self.load_packages()
+        self.load_tags()
 
     def load_packages(self):
         """Atualiza lista de pacotes disponíveis."""
         self.available_packages = self._load_list('package_list')
+
+    def load_tags(self):
+        """Atualiza lista de etiquetas disponíveis. """
+        self.available_tags = self._load_list('tag_list')
 
     def list_packages(self):
         """Lista os conjuntos de dados."""
@@ -48,7 +54,7 @@ class Package(Env, LevenshteinMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            Define os anos dos dados que serão baixados, se existir
+            define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
 
@@ -111,7 +117,8 @@ class Package(Env, LevenshteinMixin):
         for package in packages:
             self.download_package(package, path, dictionary, years)
 
-    def search_related_packages(self, keyword: str) -> list:
+    def search_related_packages(self, keyword: str, 
+                                search_tag: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
 
@@ -121,9 +128,16 @@ class Package(Env, LevenshteinMixin):
         ----------
         keyword: str
             palavra-chave com a qual será feita a busca.
+        search_tag: bool
+            flag que indica se também devem ser buscados pacotes
+            relacionados a alguma etiqueta (por padrão, False)
         """
         # Busca nomes de pacotes semelhantes à palavra passada
         related = self.search_related(keyword, self.available_packages)
+
+        # Busca nomes relacionados à tag, se for o caso
+        if search_tag:
+            print()
 
         # Imprime exceção se não houver pacotes similares
         if not len(related):
