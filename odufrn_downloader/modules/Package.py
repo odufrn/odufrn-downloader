@@ -62,7 +62,7 @@ class Package(Env, FilterMixin):
 
         try:
             for resource in response['resources']:
-                year_find = self._year_find(years, resource['name'])
+                year_find = self._year_find(resource['name'], years)
 
                 if not dictionary and 'Dicion' in resource['name']:
                     continue
