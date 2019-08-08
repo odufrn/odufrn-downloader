@@ -1,5 +1,6 @@
 from .utils import *
 
+
 class Group(unittest.TestCase):
     def setUp(self):
         """ Inicia novo objeto em todo os testes """
@@ -15,5 +16,7 @@ class Group(unittest.TestCase):
         self.assertTrue(len(self.ufrn_data.available_groups) > 0)
 
     def test_get_packages_group(self):
-        """ Verifica se a lista de datasets em um grupo é retornada """
+        """ Verifica se a lista de datasets em um grupo é
+        retornada
+        """
         self.assertTrue(len(self.ufrn_data.get_packages_group('despesas-e-orcamento')) > 0)
