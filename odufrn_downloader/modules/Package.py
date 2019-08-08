@@ -48,7 +48,7 @@ class Package(Env, FilterMixin):
         dictionary: bool
             flag para baixar o dicionário dos dados (por padrão, True).
         years: list
-            Define os anos dos dados que serão baixados, se existir
+            define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
 
@@ -62,15 +62,7 @@ class Package(Env, FilterMixin):
 
         try:
             for resource in response['resources']:
-                if years and len(years) == 0:
-                    break
-
-                year_find = False
-                if years:
-                    for key, year in enumerate(years):
-                        if str(year) in resource['name']:
-                            year_find = True
-                            del (years[key])
+                year_find = self.year_find(resource['name'], years)
 
                 if not dictionary and 'Dicion' in resource['name']:
                     continue

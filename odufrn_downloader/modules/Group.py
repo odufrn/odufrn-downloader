@@ -48,7 +48,7 @@ class Group(Package):
         return response['packages']
 
     def download_group(self, name: str, path: str = os.getcwd(),
-                       dictionary: bool = True):
+                       dictionary: bool = True, years: list = None):
         """Exibe grupo de pacotes de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         grupo de dados.
@@ -59,6 +59,9 @@ class Group(Package):
         ----------
         name: str
             nome do grupo.
+        years: list
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
@@ -76,13 +79,13 @@ class Group(Package):
 
         try:
             for package in groups['packages']:
-                self.download_package(package, path, dictionary)
+                self.download_package(package, path, dictionary, years)
 
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_groups(self, groups: list,
-                        path: str = os.getcwd(), dictionary: bool = True):
+    def download_groups(self, groups: list, path: str = os.getcwd(),
+                        dictionary: bool = True, years: list = None):
         """Exibe os grupos de pacotes de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         grupo de dados.
@@ -93,6 +96,9 @@ class Group(Package):
         ----------
         groups: list
             lista com os nomes dos grupos desejados.
+        years: list
+            define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
@@ -101,7 +107,7 @@ class Group(Package):
         """
 
         for group in groups:
-            self.download_group(group, path, dictionary)
+            self.download_group(group, path, dictionary, years)
 
     def search_related_groups(self, keyword: str,
                               simple_filter: bool = False) -> list:
