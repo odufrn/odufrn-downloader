@@ -15,7 +15,7 @@ ufrn_data.load_tags()
 ufrn_data.available_tags
 ```
 
-## list_tags
+## print_tags
 Lista as etiquetas disponíveis. Apresenta os elementos presentes na lista `available_tags`.
 
 **Exemplo**:
@@ -24,7 +24,7 @@ from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
 # Apresentando a lista de grupos de pacotes disponíveis
-ufrn_data.list_tags()
+ufrn_data.print_tags()
 ```
 
 ## search_by_tag

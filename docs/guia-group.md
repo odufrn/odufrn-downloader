@@ -55,7 +55,7 @@ ufrn_data.load_groups()
 ufrn_data.available_groups
 ```
 
-## list_groups
+## print_groups
 Lista os grupos de conjuntos de dados. Apresenta os elementos presentes na lista `available_groups`.
 
 **Exemplo**:
@@ -64,7 +64,7 @@ from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
 # Apresentando a lista de grupos de pacotes disponíveis
-ufrn_data.list_groups()
+ufrn_data.print_groups()
 ```
 
 ## search_related_groups
