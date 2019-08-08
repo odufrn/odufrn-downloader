@@ -190,6 +190,6 @@ class Package(Env, FilterMixin):
             (por padrão, a pasta atual).
         """
         # Recupera pacotes
-        packages = self.tag.search_by_tag(keyword)
+        packages = self.tag.search_by_tag(tag)
 
         self.download_packages(packages, path)
