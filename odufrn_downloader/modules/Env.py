@@ -76,3 +76,24 @@ class Env(ABC):
         request_get = requests.get(url)
 
         return request_get.json()
+
+    def _year_find(self, years: list, package_name: str) -> bool:
+        """Verifica se o pacote pertence a uma ano específico da lista years.
+
+        Parâmetros
+        ----------
+        years: list
+            anos que serão filtrados na pesquisa.
+        package_name: str
+            nome do pacote a ser filtrado.
+        Retorno
+        ----------
+        bool
+            True se o ano foi encontrado no nome do pacote se não false."""
+        year_find = False
+        if years:
+            for key, year in enumerate(years):
+                if str(year) in package_name:
+                    year_find = True
+                    del (years[key])
+        return year_find

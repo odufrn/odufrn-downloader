@@ -47,8 +47,8 @@ class Group(Package):
 
         return datasets['packages']
 
-    def download_group(self, name: str, path: str = os.getcwd(),
-                       dictionary: bool = True):
+    def download_group(self, name: str, years: list,
+                       path: str = os.getcwd(), dictionary: bool = True):
         """Exibe grupo de pacotes de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
         grupo de dados.
@@ -76,12 +76,12 @@ class Group(Package):
 
         try:
             for package in groups['packages']:
-                self.download_package(package, path, dictionary)
+                self.download_package(package, path, dictionary, years=years)
 
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_groups(self, groups: list,
+    def download_groups(self, groups: list, years: list,
                         path: str = os.getcwd(), dictionary: bool = True):
         """Exibe os grupos de pacotes de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
@@ -101,7 +101,7 @@ class Group(Package):
         """
 
         for group in groups:
-            self.download_group(group, path, dictionary)
+            self.download_group(group, years, path, dictionary)
 
     def search_related_groups(self, keyword: str) -> list:
         """Procura os grupos de pacotes que possuam nomes

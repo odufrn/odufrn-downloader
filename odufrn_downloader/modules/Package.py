@@ -65,12 +65,7 @@ class Package(Env, LevenshteinMixin):
                 if years and len(years) == 0:
                     break
 
-                year_find = False
-                if years:
-                    for key, year in enumerate(years):
-                        if str(year) in resource['name']:
-                            year_find = True
-                            del (years[key])
+                year_find = self._year_find(years, resource['name'])
 
                 if not dictionary and 'Dicion' in resource['name']:
                     continue
