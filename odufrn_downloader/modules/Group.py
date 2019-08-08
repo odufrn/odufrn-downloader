@@ -47,7 +47,7 @@ class Group(Package):
 
         return datasets['packages']
 
-    def download_group(self, name: str, years: list,
+    def download_group(self, name: str, years: list = None,
                        path: str = os.getcwd(), dictionary: bool = True):
         """Exibe grupo de pacotes de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
@@ -59,6 +59,9 @@ class Group(Package):
         ----------
         name: str
             nome do grupo.
+        years: list
+            Define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
@@ -81,7 +84,7 @@ class Group(Package):
         except Exception as ex:
             self._print_exception(ex)
 
-    def download_groups(self, groups: list, years: list,
+    def download_groups(self, groups: list, years: list = None,
                         path: str = os.getcwd(), dictionary: bool = True):
         """Exibe os grupos de pacotes de acordo com seu nome
         e baixa-os em pastas com o nome do respectivo
@@ -93,6 +96,9 @@ class Group(Package):
         ----------
         groups: list
             lista com os nomes dos grupos desejados.
+        years: list
+            Define os anos dos dados que serão baixados, se existir
+            realiza-se o download.
         path: str
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
