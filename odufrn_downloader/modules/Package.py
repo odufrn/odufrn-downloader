@@ -18,6 +18,8 @@ class Package(Env, FilterMixin):
         instância da classe Tag usada na classe.
     """
 
+    MSG_ERRORS = {'none_package': 'Nenhum pacote foi encontrado'}
+
     def __init__(self):
         super().__init__()
 
@@ -202,4 +204,3 @@ class Package(Env, FilterMixin):
             related_packages = " ou ".join(self.search_related_packages(name))
             msg = "Você pode estar procurando por {}".format(related_packages)
             self._print_exception(e, msg)
-

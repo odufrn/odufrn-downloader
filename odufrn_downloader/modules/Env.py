@@ -17,15 +17,17 @@ class Env(ABC):
     """
 
     """Constante com mensagens de erros"""
-    MSG_ERRORS = {'download_error': ("Ocorreu algum erro durante o download do pacote."
-        "Verifique sua conexão, o nome do conjunto de dados"
-        "e tente novamente.")}
+    MSG_ERRORS = {'download_error': (
+                  "Ocorreu algum erro durante o download do pacote."
+                  "Verifique sua conexão, o nome do conjunto de dados"
+                  "e tente novamente.")}
 
     def __init__(self):
         self.url_base = 'http://dados.ufrn.br/'
         self.url_action = self.url_base + 'api/action/'
 
-    def _print_exception(self, ex: Exception, msg: str = MSG_ERRORS['download_error']):
+    def _print_exception(self, ex: Exception,
+                         msg: str = MSG_ERRORS['download_error']):
         """Imprime mensagem padrão para exceções."""
         print('\033[91m{}\033[0m'.format(ex))
         print(msg)

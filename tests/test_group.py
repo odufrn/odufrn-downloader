@@ -30,3 +30,13 @@ class Group(unittest.TestCase):
         self.assertTrue(len(list_groups) == 1)
         list_groups = self.ufrn_data.search_related_groups('pesq')
         self.assertTrue(len(list_groups) == 0)
+
+    def test_can_print_files_from_group(self):
+        """Verifica se os arquivos de um grupo podem ser impresso na tela."""
+        assert_console(
+            lambda: self.ufrn_data.print_files_from_group('processos'))
+
+    def test_can_print_files_from_group_with_typo(self):
+        """Verifica se o tratamento de erro com o Levenshtein funciona."""
+        assert_console(
+            lambda: self.ufrn_data.print_files_from_package('process'))
