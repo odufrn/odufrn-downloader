@@ -30,7 +30,7 @@ class Package(Env, FilterMixin):
         """Atualiza lista de pacotes disponíveis."""
         self.available_packages = self._load_list('package_list')
 
-    def list_packages(self):
+    def print_packages(self):
         """Lista os conjuntos de dados."""
         self._print_list("pacotes de dados", self.available_packages)
 

@@ -6,9 +6,9 @@ class Group(unittest.TestCase):
         """Inicia novo objeto em todo os testes """
         self.ufrn_data = ODUFRNDownloader()
 
-    def test_list_groups(self):
+    def test_print_groups(self):
         """Verifica se a lista de grupos é impressa na tela """
-        assert_console(self.ufrn_data.list_groups)
+        assert_console(self.ufrn_data.print_groups)
 
     def test_load_groups(self):
         """Verifica se a lista de grupos é carregada no objeto """

@@ -124,7 +124,7 @@ ufrn_data.load_packages()
 ufrn_data.available_packages
 ```
 
-## list_packages
+## print_packages
 Lista os pacotes de dados. Apresenta os elementos presentes na lista `available_packages`.
 
 **Exemplo**:
@@ -133,7 +133,7 @@ from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
 # Apresentando a lista de packages disponíveis
-ufrn_data.list_packages()
+ufrn_data.print_packages()
 ```
 
 ## search_related_packages
