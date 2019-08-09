@@ -195,5 +195,11 @@ class Package(Env, FilterMixin):
             nome do recurso a ser pesquisado.
         """
         request = self._request_get(self.url_package + name)
-        for resource in request['resources']:
-            print(resource['name'])
+        try:
+            for resource in request['resources']:
+                print(resource['name'])
+        except TypeError as e:
+            related_packages = " ou ".join(self.search_related_packages(name))
+            msg = "Você pode estar procurando por {}".format(related_packages)
+            self._print_exception(e, msg)
+
