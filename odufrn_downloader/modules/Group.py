@@ -25,7 +25,7 @@ class Group(Package):
         """Atualiza lista de grupos de pacotes disponíveis."""
         self.available_groups = self._load_list('group_list')
 
-    def list_groups(self):
+    def print_groups(self):
         """Lista os grupos de pacotes."""
         self._print_list("grupos de dados", self.available_groups)
 

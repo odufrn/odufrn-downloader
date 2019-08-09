@@ -18,7 +18,10 @@ Abaixo estão listados os métodos disponíveis no pacote:
 | `download_groups` | Baixa uma lista de grupos de pacotes de dados desejado. |
 | `load_packages` | Atualiza a lista de pacotes disponíveis. |
 | `load_groups` | Atualiza a lista de grupos disponíveis. |
-| `list_packages` | Lista os pacotes de dados. |
-| `list_groups` | Lista os grupos de conjuntos de dados. |
+| `load_tags` | Atualiza lista de etiquetas disponíveis. |
+| `print_packages` | Lista os pacotes de dados. |
+| `print_groups` | Lista os grupos de conjuntos de dados. |
+| `print_tags` | Lista as etiquetas. |
+| `search_by_tag` | Retorna uma lista de pacotes de dados relacionados a uma etiqueta. |
 | `search_related_packages` | Retorna uma lista de pacotes de dados relacionados a uma entrada. |
 | `search_related_groups` | Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada. |
