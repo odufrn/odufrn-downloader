@@ -1,6 +1,6 @@
 ---
-name: Nova feature
-about: Descreva a nova feature que deve ser desenvolvida
+name: Bug
+about: Descreva o bug que precisa ser corrigido
 title: ''
 labels: bug
 assignees: ''
@@ -9,20 +9,23 @@ assignees: ''
 # Bug
 Descreva, brevemente, o erro.
 
-## Informações
-Aqui você coloca as informações da máquina.
-
-- **Versão Python**: 3.6
-
 ## Replicando o erro
-1. Aqui você coloca o passo-a-passo para causar o mesmo erro que você sofreu.
-1. Use uma lista enumerada para indicar a ordem dos passos
+1. _Aqui você coloca o passo-a-passo para causar o mesmo erro que você sofreu._
+1. _Use uma lista enumerada para indicar a ordem dos passos._
 
 ```python
 from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
-# Função de exemplo
+# Código do erro
+
+# Output
+
+# Output esperado
 ```
 
-O output esperado seria `output`
+
+## Informações que podem ajudar
+Aqui você coloca as informações da máquina.
+
+- **Versão Python**: 3.6
