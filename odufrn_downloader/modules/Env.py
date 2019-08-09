@@ -29,14 +29,15 @@ class Env(ABC):
             "Verifique sua conexão, o nome do conjunto de dados "
             "e tente novamente."
         )
-    
+
     def _print_not_found(self, name: str, type_name: str):
         """Imprime mensagem padrão para nome de dados não encontrados.
         """
         print('{} de dados "{}" não foi encontrado.'.format(type_name, name))
-    
+
     def _print_not_relation(self, name: str, type_name: str):
-        """Imprime mensagem padrão para nome de dados semelhantes não encontrados.
+        """Imprime mensagem padrão para nome de dados semelhantes não 
+        encontrados.
         """ 
         print('Não há {} semelhante a {}'.format(type_name, name))       
 
