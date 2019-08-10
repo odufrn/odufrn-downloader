@@ -17,10 +17,14 @@ class Env(ABC):
     """
 
     """Constante com mensagens de erros"""
-    MSG_ERRORS = {'download_error': (
-                  "Ocorreu algum erro durante o download do pacote."
-                  "Verifique sua conexão, o nome do conjunto de dados"
-                  "e tente novamente.")}
+    MSG_ERRORS = {
+        'download_error': (
+            "Ocorreu algum erro durante o download do pacote."
+            "Verifique sua conexão, o nome do conjunto de dados"
+            "e tente novamente."
+        ),
+        'none_package': 'Nenhum pacote foi encontrado',
+    }
 
     def __init__(self):
         self.url_base = 'http://dados.ufrn.br/'

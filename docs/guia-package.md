@@ -124,6 +124,32 @@ ufrn_data.load_packages()
 ufrn_data.available_packages
 ```
 
+## print_files_from_package
+Imprime no terminal a lista de arquivos referentes ao pacote de entrada.
+Atualmente usa-se o cálculo de Levenshtein para verificar a similaridade
+entre a entrada e os nomes dos pacotes.
+
+**Parâmetros**:
+
+| Parâmetro | Tipo | Valor padrão | Descrição |
+| --------- | ---- | ------------ | --------- |
+| `name` | `str` | - | Nome do pacote que será buscado. |
+
+**Exemplo**:
+```python
+from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Listar arquivos do pacote discentes
+ufrn_data.print_files_from_package('discentes')
+
+# Output:
+# Ingressantes em 2019
+# Ingressantes em 2018
+# ...
+# Dicionário de Dados - Discentes
+```
+
 ## print_packages
 Lista os pacotes de dados. Apresenta os elementos presentes na lista `available_packages`.
 
@@ -160,30 +186,4 @@ print(list_discentes)
 
 # Output:
 # ['dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes', 'discentes']
-```
-
-## print_files_from_package
-Printa no terminal a lista de arquivos referentes ao pacote de entrada.
-Atualmente usa-se o cálculo de Levenshtein para verificar a similaridade
-entre a entrada e os nomes dos pacotes.
-
-**Parâmetros**:
-
-| Parâmetro | Tipo | Valor padrão | Descrição |
-| --------- | ---- | ------------ | --------- |
-| `name` | `str` | - | Nome do pacote que será buscado. |
-
-**Exemplo**:
-```python
-from odufrn_downloader import ODUFRNDownloader
-ufrn_data = ODUFRNDownloader()
-
-# Listar arquivos do pacote discentes
-ufrn_data.print_files_from_package('discentes')
-
-# Output:
-# Ingressantes em 2019
-# Ingressantes em 2018
-# ...
-# Dicionário de Dados - Discentes
 ```

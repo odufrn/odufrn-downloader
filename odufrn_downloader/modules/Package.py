@@ -18,8 +18,6 @@ class Package(Env, FilterMixin):
         instância da classe Tag usada na classe.
     """
 
-    MSG_ERRORS = {'none_package': 'Nenhum pacote foi encontrado'}
-
     def __init__(self):
         super().__init__()
 
@@ -199,8 +197,8 @@ class Package(Env, FilterMixin):
         request = self._request_get(self.url_package + name)
         try:
             for resource in request['resources']:
-                print(resource['name'])
+                print(resource['url'].split('/')[-1])
         except TypeError as e:
-            related_packages = " ou ".join(self.search_related_packages(name))
-            msg = "Você pode estar procurando por {}".format(related_packages)
-            self._print_exception(e, msg)
+            self._print_exception(
+                e, self.str_related(self.search_related_packages(name))
+            )

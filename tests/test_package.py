@@ -27,9 +27,11 @@ class Package(unittest.TestCase):
     def test_can_print_files_from_package(self):
         """Verifica se os arquivos de um pacote podem ser impressos na tela."""
         assert_console(
-            lambda: self.ufrn_data.print_files_from_package('discentes'))
+            lambda: self.ufrn_data.print_files_from_package('discentes')
+        )
 
     def test_can_print_files_from_package_with_typo(self):
         """Verifica se o tratamento de erro com o Levenshtein funciona."""
         assert_console(
-            lambda: self.ufrn_data.print_files_from_package('discente'))
+            lambda: self.ufrn_data.print_files_from_package('discente')
+        )

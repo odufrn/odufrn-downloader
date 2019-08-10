@@ -65,3 +65,20 @@ class LevenshteinMixin:
                     continue
 
         return filter_list
+
+    def str_related(self, related_packages: list):
+        """Formata mensagem de lista com buscas relacionadas.
+
+        Parâmetros
+        ----------
+        related_packages: list
+            lista de palavras relacionadas.
+        Retorno
+        -------
+        string "" se lista vazia, formatada caso contrário.
+        """
+        msg = " ou ".join(related_packages)
+        if msg == "":
+            return msg
+
+        return "\nVocê pode estar procurando por {}".format(msg)

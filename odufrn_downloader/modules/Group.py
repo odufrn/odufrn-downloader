@@ -139,6 +139,19 @@ class Group(Package):
         return related
 
     def print_files_from_group(self, name: str):
-        request = self._request_get(self.url_group + name)
-        for resource in request['packages']:
-            self.print_files_from_package(resource)
+        """Printa os arquivos dos pacotes de um grupo.
+
+        > Exemplo: print_files_from_group('processos')
+
+        Parâmetros
+        ----------
+        name: str
+            nome do recurso a ser pesquisado.
+        """
+        try:
+            for resource in self.get_packages_group(name):
+                self.print_files_from_package(resource)
+        except TypeError as e:
+            self._print_exception(
+                e, self.str_related(self.search_related_packages(name))
+            )

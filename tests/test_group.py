@@ -34,9 +34,11 @@ class Group(unittest.TestCase):
     def test_can_print_files_from_group(self):
         """Verifica se os arquivos de um grupo podem ser impresso na tela."""
         assert_console(
-            lambda: self.ufrn_data.print_files_from_group('processos'))
+            lambda: self.ufrn_data.print_files_from_group('processos')
+        )
 
     def test_can_print_files_from_group_with_typo(self):
         """Verifica se o tratamento de erro com o Levenshtein funciona."""
         assert_console(
-            lambda: self.ufrn_data.print_files_from_package('process'))
+            lambda: self.ufrn_data.print_files_from_package('process')
+        )
