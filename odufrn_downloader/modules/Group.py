@@ -137,3 +137,21 @@ class Group(Package):
             )
 
         return related
+
+    def print_files_from_group(self, name: str):
+        """Printa os arquivos dos pacotes de um grupo.
+
+        > Exemplo: print_files_from_group('processos')
+
+        Parâmetros
+        ----------
+        name: str
+            nome do recurso a ser pesquisado.
+        """
+        try:
+            for resource in self.get_packages_group(name):
+                self.print_files_from_package(resource)
+        except TypeError as e:
+            self._print_exception(
+                e, self.str_related(self.search_related_packages(name))
+            )

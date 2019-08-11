@@ -185,3 +185,20 @@ class Package(Env, FilterMixin):
         packages = self.tag.search_by_tag(tag)
 
         self.download_packages(packages, path)
+
+    def print_files_from_package(self, name: str):
+        """Printa os arquivos do pacote.
+
+        Parâmetros
+        ----------
+        name: str
+            nome do recurso a ser pesquisado.
+        """
+        request = self._request_get(self.url_package + name)
+        try:
+            for resource in request['resources']:
+                print(resource['url'].split('/')[-1])
+        except TypeError as e:
+            self._print_exception(
+                e, self.str_related(self.search_related_packages(name))
+            )

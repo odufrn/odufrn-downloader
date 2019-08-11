@@ -19,6 +19,8 @@ Abaixo estão listados os métodos disponíveis no pacote:
 | `load_packages` | Atualiza a lista de pacotes disponíveis. |
 | `load_groups` | Atualiza a lista de grupos disponíveis. |
 | `load_tags` | Atualiza lista de etiquetas disponíveis. |
+| `print_files_from_package` | Imprime no terminal a lista de arquivos referentes ao pacote de entrada. |
+| `print_files_from_group` | Imprime no terminal a lista de arquivos referentes ao grupo de entrada. |
 | `print_packages` | Lista os pacotes de dados. |
 | `print_groups` | Lista os grupos de conjuntos de dados. |
 | `print_tags` | Lista as etiquetas. |
