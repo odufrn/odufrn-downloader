@@ -28,6 +28,7 @@ class Group(unittest.TestCase):
         self.assertTrue(len(list_groups) == 1)
         list_groups = self.ufrn_data.search_related_groups('pesq', True)
         self.assertTrue(len(list_groups) == 1)
+        self.ufrn_data.warnings = True
         list_groups = self.ufrn_data.search_related_groups('pesq')
         self.assertTrue(len(list_groups) == 0)
 

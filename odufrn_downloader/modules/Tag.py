@@ -41,11 +41,8 @@ class Tag(Env, FilterMixin):
 
         tags = self.search_related(tag, self.available_tags, False)
         # Imprime exceção se não houver pacotes
-        if not len(tags):
-            print(
-                "Não há nenhuma etiqueta semelhante"
-                " a \"{}\".".format(tag)
-            )
+        if not len(tags) and self.warnings:
+            self._print_not_relation(tag, 'Tag')
 
         packages = []
         for key in tags:

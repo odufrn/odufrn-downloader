@@ -57,8 +57,8 @@ class Package(Env, FilterMixin):
         """
 
         # Checa se o pacote está disponível
-        if not (name in self.available_packages):
-            print('O conjunto de dados "{}" não foi encontrado.'.format(name))
+        if not (name in self.available_packages) and self.warnings:
+            self._print_not_found(name, 'Pacote')
             return
 
         response = self._request_get(self.url_package + name)
@@ -139,11 +139,8 @@ class Package(Env, FilterMixin):
                     related.append(package)
 
         # Imprime exceção se não houver pacotes similares
-        if not len(related):
-            print(
-                "Não há nenhum pacote de dados semelhante"
-                " a \"{}\".".format(keyword)
-            )
+        if not len(related) and self.warnings:
+            self._print_not_relation(keyword, 'Package')
 
         return related
 
