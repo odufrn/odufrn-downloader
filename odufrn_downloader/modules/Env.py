@@ -29,6 +29,7 @@ class Env(ABC):
     def __init__(self):
         self.url_base = 'http://dados.ufrn.br/'
         self.url_action = self.url_base + 'api/action/'
+        self.warnings = False
 
     def _print_exception(self, ex: Exception,
                          msg: str = MSG_ERRORS['download_error']):

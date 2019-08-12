@@ -70,8 +70,8 @@ class Group(Package):
         """
 
         # Checa se o grupo está disponível
-        if not (name in self.available_groups):
-            self._print_not_found('Grupo', name)
+        if not (name in self.available_groups) and self.warnings:
+            self._print_not_found(name, 'Grupo')
             return
 
         groups = self._request_get(self.url_group + name)
@@ -130,11 +130,8 @@ class Group(Package):
             related = self.search_related(keyword, self.available_groups)
 
         # Imprime exceção se não houver grupos similares
-        if not len(related):
-            print(
-                "Não há nenhum grupo de conjunto de dados"
-                " semelhante a \"{}\".".format(keyword)
-            )
+        if not len(related) and self.warnings:
+            self._print_not_relation(keyword, 'Grupo')
 
         return related
 
