@@ -6,9 +6,9 @@ class Tag(unittest.TestCase):
         """ Inicia novo objeto em todo os testes """
         self.ufrn_data = ODUFRNDownloader()
 
-    def test_can_list_packages(self):
+    def test_can_print_packages(self):
         """ Verifica se a lista de tags é impressa na tela """
-        assert_console(self.ufrn_data.list_tags)
+        assert_console(self.ufrn_data.print_tags)
 
     def test_can_load_packages(self):
         """ Verifica se a lista de packages é carregada no objeto """
