@@ -183,7 +183,14 @@ ufrn_data = ODUFRNDownloader()
 # Procurar packages relacionados a discente
 list_discentes = ufrn_data.search_related_packages('discente')
 print(list_discentes)
-
+# Output:
+# ['dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes', 'discentes']
+list_discentes = ufrn_data.search_related_packages('disc')
+print(list_discentes)
+# Output:
+# []
+list_discentes = ufrn_data.search_related_packages('disc', simple_filter=True)
+print(list_discentes)
 # Output:
 # ['dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes', 'discentes']
 ```

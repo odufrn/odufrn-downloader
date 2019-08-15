@@ -103,6 +103,7 @@ entre a entrada e os nomes dos grupos.
 | Parâmetro | Tipo | Valor padrão | Descrição |
 | --------- | ---- | ------------ | --------- |
 | `keyword` | `str` | - | Palavra-chave com a qual será feita a busca. |
+| `simple_filter` | `bool` | - | Indica o uso de um filtro mais simples que o Levenshtein. |
 
 **Exemplo**:
 ```python
@@ -112,7 +113,14 @@ ufrn_data = ODUFRNDownloader()
 # Procurar grupos relacionados a pesquisa
 list_groups = ufrn_data.search_related_groups('pesquis')
 print(list_groups)
-
+# Output:
+# ['pesquisa']
+list_groups = ufrn_data.search_related_groups('pesq')
+print(list_groups)
+# Output:
+# []
+list_groups = ufrn_data.search_related_groups('pesq', simple_filter=True)
+print(list_groups)
 # Output:
 # ['pesquisa']
 ```
