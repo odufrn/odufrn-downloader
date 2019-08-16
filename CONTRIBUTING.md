@@ -14,15 +14,14 @@ pedimos que ele seja seguido para interagir com o projeto.
 3. Qualquer adição de dependência devem ser descritos na descrição do pull request.
 4. Após a revisão de código por dois ou mais mantenedores, se aceitas as mudanças,
 o pull request é aceito.
-5. Os pulls request devem ser feitos para a branch development, pois as modicações serão lançadas
-na próxima versão do sistema.
+5. Os pulls request devem ser feitos para a branch development, pois as modicações serão 
+lançadas na próxima versão do sistema.
+6. Um mantenedor não pode aceitar o próprio pull request
 
 ## Instalando ambiente para desenvolvimento
 
-Geralmente criamos um virtualenv para o projeto e instalamos o pacote utilizando o ` commands.sh `, basta,
-no ambiente unix, rodar o comando bash.
-
-Rodado o commands.sh basta criar um arquivo no projeto e testar seu código:
+Para instalar o pacote localmente utiliza-se o ` pip install -e . `. Instalado o pacote, basta
+criar um arquivo no projeto e testar seu código, exemplo:
 
 ```python
 from odufrn_downloader import ODUFRNDownloader
