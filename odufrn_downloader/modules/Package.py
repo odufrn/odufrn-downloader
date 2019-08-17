@@ -55,6 +55,7 @@ class Package(Env, FilterMixin):
             define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
+        print("dictionary value: {}".format(dictionary))
         # Checa se o pacote está disponível
         if not (name in self.available_packages) and self.warnings:
             self._print_not_found(name, 'Pacote')
@@ -65,7 +66,7 @@ class Package(Env, FilterMixin):
 
         try:
             for resource in response['resources']:
-                if 'Dicion' in resource['name'] and not dictionary:
+                if 'Dicion' in resource['name'] and dictionary:
                     self._download(path, resource)
                 if years is None or self.year_find(resource['name'], years):
                     self._download(path, resource)
