@@ -1,7 +1,13 @@
 # Open Data UFRN Downloader
-[![PyPI version](https://badge.fury.io/py/odufrn-downloader.svg)](https://badge.fury.io/py/odufrn-downloader)
-[![Build Status](https://travis-ci.org/odufrn/odufrn-downloader.svg?branch=master)](https://travis-ci.org/odufrn/odufrn-downloader)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://img.shields.io/badge/license-MIT-red.svg)
+<a href="https://pypi.org/project/mre/">
+  <img alt="PyPI" src="https://img.shields.io/pypi/v/odufrn-downloader?color=brightgreen">
+</a>
+<a href="https://pypi.org/project/mre/">
+  <img alt="Build" src="https://img.shields.io/travis/odufrn/odufrn-downloader">
+</a>
+<a href="https://pypi.org/project/mre/">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg">
+</a>
 
 Pacote para baixar os dados do portal de [dados abertos da UFRN](http://dados.ufrn.br/).
 
