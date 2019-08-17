@@ -8,7 +8,7 @@
   
   <meta name="author" content="Open Data UFRN">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Guia geral - odufrn-downloader</title>
+  <title>Guia etiqueta - odufrn-downloader</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Guia geral";
-    var mkdocs_page_input_path = "guia-geral.md";
-    var mkdocs_page_url = "/guia-geral/";
+    var mkdocs_page_name = "Guia etiqueta";
+    var mkdocs_page_input_path = "guia-etiqueta.md";
+    var mkdocs_page_url = "/guia-etiqueta/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -52,23 +52,30 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../guia-etiqueta/">Guia etiqueta</a>
-	    </li>
-          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Guia geral</a>
+    <a class="current" href="./">Guia etiqueta</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#geral">Geral</a></li>
+    <li class="toctree-l2"><a href="#tag">Tag</a></li>
     
-
-    <li class="toctree-l2"><a href="#metodos">Métodos</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#load_tags">load_tags</a></li>
+        
+            <li><a class="toctree-l3" href="#print_tags">print_tags</a></li>
+        
+            <li><a class="toctree-l3" href="#search_by_tag">search_by_tag</a></li>
+        
+        </ul>
     
 
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../guia-geral/">Guia geral</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -103,10 +110,10 @@
     
       
     
-    <li>Guia geral</li>
+    <li>Guia etiqueta</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/odufrn/odufrn-downloader/edit/master/docs/guia-geral.md"
+        <a href="https://github.com/odufrn/odufrn-downloader/edit/master/docs/guia-etiqueta.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -116,92 +123,62 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="geral">Geral</h1>
-<p>Como começar a usar o pacote:</p>
+                <h1 id="tag">Tag</h1>
+<p>Os métodos aqui apresentados são referentes ao uso de etiquetas de pacotes (listagem, busca, etc).</p>
+<h2 id="load_tags">load_tags</h2>
+<p>Atualiza a lista de etiquetas disponíveis. A lista com esses valores é a variável <code>available_tags</code>.</p>
+<p><strong>Exemplo</strong>:</p>
 <pre><code class="python">from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
+
+# Atualizando a lista de grupos disponíveis
+ufrn_data.load_tags()
+# Acessando a lista de grupos disponíveis
+ufrn_data.available_tags
 </code></pre>
 
-<h1 id="metodos">Métodos</h1>
-<p>Abaixo estão listados os métodos disponíveis no pacote:</p>
+<h2 id="print_tags">print_tags</h2>
+<p>Imprime as etiquetas disponíveis. Apresenta os elementos presentes na lista <code>available_tags</code>.</p>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Apresentando a lista de grupos de pacotes disponíveis
+ufrn_data.print_tags()
+</code></pre>
+
+<h2 id="search_by_tag">search_by_tag</h2>
+<p>Busca pacotes com base em etiqueta.</p>
+<p><strong>Parâmetros</strong>:</p>
 <table>
 <thead>
 <tr>
-<th>Método</th>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Valor padrão</th>
 <th>Descrição</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>download_all</code></td>
-<td>Baixa todos os conjuntos de dados disponíveis.</td>
-</tr>
-<tr>
-<td><code>download_package</code></td>
-<td>Baixa o pacote de dados desejado.</td>
-</tr>
-<tr>
-<td><code>download_packages</code></td>
-<td>Baixa uma lista de pacotes de dados desejado.</td>
-</tr>
-<tr>
-<td><code>download_from_file</code></td>
-<td>Baixa os pacotes de dados que estão escritos em um arquivo de texto.</td>
-</tr>
-<tr>
-<td><code>download_group</code></td>
-<td>Baixa um grupo de conjuntos de dados desejado.</td>
-</tr>
-<tr>
-<td><code>download_groups</code></td>
-<td>Baixa uma lista de grupos de pacotes de dados desejado.</td>
-</tr>
-<tr>
-<td><code>load_packages</code></td>
-<td>Atualiza a lista de pacotes disponíveis.</td>
-</tr>
-<tr>
-<td><code>load_groups</code></td>
-<td>Atualiza a lista de grupos disponíveis.</td>
-</tr>
-<tr>
-<td><code>load_tags</code></td>
-<td>Atualiza lista de etiquetas disponíveis.</td>
-</tr>
-<tr>
-<td><code>print_files_from_package</code></td>
-<td>Imprime no terminal a lista de arquivos referentes ao pacote de entrada.</td>
-</tr>
-<tr>
-<td><code>print_files_from_group</code></td>
-<td>Imprime no terminal a lista de arquivos referentes ao grupo de entrada.</td>
-</tr>
-<tr>
-<td><code>print_packages</code></td>
-<td>Imprime os pacotes de dados.</td>
-</tr>
-<tr>
-<td><code>print_groups</code></td>
-<td>Imprime os grupos de conjuntos de dados.</td>
-</tr>
-<tr>
-<td><code>print_tags</code></td>
-<td>Imprime as etiquetas.</td>
-</tr>
-<tr>
-<td><code>search_by_tag</code></td>
-<td>Retorna uma lista de pacotes de dados relacionados a uma etiqueta.</td>
-</tr>
-<tr>
-<td><code>search_related_packages</code></td>
-<td>Retorna uma lista de pacotes de dados relacionados a uma entrada.</td>
-</tr>
-<tr>
-<td><code>search_related_groups</code></td>
-<td>Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada.</td>
+<td><code>tag</code></td>
+<td><code>str</code></td>
+<td>-</td>
+<td>Etiqueta desejada.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="python">from odufrn_downloader import ODUFRNDownloader
+ufrn_data = ODUFRNDownloader()
+
+# Procurar grupos relacionados a pesquisa
+list_tags = ufrn_data.search_by_tag('graduacao')
+print(list_tags)
+
+# Output:
+# ['cursos-de-graduacao', 'discentes', 'turmas', 'cursos-ufrn', 'estruturas-curriculares']
+</code></pre>
               
             </div>
           </div>
@@ -209,10 +186,10 @@ ufrn_data = ODUFRNDownloader()
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../guia-group/" class="btn btn-neutral float-right" title="Guia group">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../guia-geral/" class="btn btn-neutral float-right" title="Guia geral">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../guia-etiqueta/" class="btn btn-neutral" title="Guia etiqueta"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -240,10 +217,10 @@ ufrn_data = ODUFRNDownloader()
           <a href="https://github.com/odufrn/odufrn-downloader" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../guia-etiqueta/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../guia-group/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../guia-geral/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
