@@ -38,8 +38,13 @@ Abaixo estão listados os métodos disponíveis no pacote:
 | `download_groups` | Baixa uma lista de grupos de pacotes de dados desejado. |
 | `load_packages` | Atualiza a lista de pacotes disponíveis. |
 | `load_groups` | Atualiza a lista de grupos disponíveis. |
-| `list_packages` | Lista os pacotes de dados. |
-| `list_groups` | Lista os grupos de conjuntos de dados. |
+| `load_tags` | Atualiza lista de etiquetas disponíveis. |
+| `print_files_from_package` | Imprime no terminal a lista de arquivos referentes ao pacote de entrada. |
+| `print_files_from_group` | Imprime no terminal a lista de arquivos referentes ao grupo de entrada. |
+| `print_packages` | Imprime os pacotes de dados. |
+| `print_groups` | Imprime os grupos de conjuntos de dados. |
+| `print_tags` | Imprime as etiquetas. |
+| `search_by_tag` | Retorna uma lista de pacotes de dados relacionados a uma etiqueta. |
 | `search_related_packages` | Retorna uma lista de pacotes de dados relacionados a uma entrada. |
 | `search_related_groups` | Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada. |
 
@@ -49,7 +54,7 @@ from odufrn_downloader import ODUFRNDownloader
 ufrn_data = ODUFRNDownloader()
 
 # Lista os conjuntos de dados
-ufrn_data.list_packages()
+ufrn_data.print_packages()
 
 # Baixa um conjunto de dados
 ufrn_data.download_package('discentes')
