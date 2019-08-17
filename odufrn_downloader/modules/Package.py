@@ -55,7 +55,6 @@ class Package(Env, FilterMixin):
             define os anos dos dados que serão baixados, se existir
             realiza-se o download.
         """
-        print("dictionary value: {}".format(dictionary))
         # Checa se o pacote está disponível
         if not (name in self.available_packages) and self.warnings:
             self._print_not_found(name, 'Pacote')
