@@ -9,14 +9,14 @@ pedimos que ele seja seguido para interagir com o projeto.
 
 ## Processo de Pull Request
 
-1. Pull requests devem passar pelo build do Travis e depois ser revisados pelos mantenedores.
-2. Ao contribuir com o código deve-se escrever os testes e documentar as alterações.
-3. Qualquer adição de dependência devem ser descritos na descrição do pull request.
-4. Após a revisão de código por dois ou mais mantenedores, se aceitas as mudanças,
-o pull request é aceito.
-5. Os pulls request devem ser feitos para a branch development, pois as modicações serão 
-lançadas na próxima versão do sistema.
-6. Um mantenedor não pode aceitar o próprio pull request
+1. Pull requests devem passar pelo **build do Travis** e depois ser **revisados** pelos mantenedores;
+2. Ao contribuir com o código deve-se **escrever os testes** e **documentar** as alterações;
+3. Qualquer adição de dependência devem ser **descritos** no pull request;
+4. Após a revisão de código por **dois ou mais mantenedores**, se aceitas as mudanças,
+o pull request é aceito;
+5. Os pulls request devem ser feitos para a **branch development**, pois as modicações serão 
+lançadas na próxima versão do sistema;
+6. Um mantenedor **não** pode aceitar o próprio pull request.
 
 ## Instalando ambiente para desenvolvimento
 
