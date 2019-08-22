@@ -8,23 +8,24 @@
   
   <meta name="author" content="Open Data UFRN">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Guia etiqueta - odufrn-downloader</title>
+  <title>Tag - odufrn-downloader</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Guia etiqueta";
+    var mkdocs_page_name = "Tag";
     var mkdocs_page_input_path = "guia-etiqueta.md";
-    var mkdocs_page_url = "/guia-etiqueta/";
+    var mkdocs_page_url = "/odufrn/odufrn-downloader/guia-etiqueta/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -38,7 +39,7 @@
         <a href=".." class="icon icon-home"> odufrn-downloader</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -49,43 +50,46 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Home</a>
+    <a class="" href="..">Instalação</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Guia etiqueta</a>
+    <span class="caption-text">Guia de uso</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guia-geral/">Geral</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guia-package/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guia-group/">Group</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Tag</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#tag">Tag</a></li>
+    <li class="toctree-l3"><a href="#tag">Tag</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#load_tags">load_tags</a></li>
+            <li><a class="toctree-l4" href="#load_tags">load_tags</a></li>
         
-            <li><a class="toctree-l3" href="#print_tags">print_tags</a></li>
+            <li><a class="toctree-l4" href="#print_tags">print_tags</a></li>
         
-            <li><a class="toctree-l3" href="#search_by_tag">search_by_tag</a></li>
+            <li><a class="toctree-l4" href="#search_by_tag">search_by_tag</a></li>
         
         </ul>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../guia-geral/">Guia geral</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../guia-group/">Guia group</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../guia-package/">Guia package</a>
+                </li>
+    </ul>
 	    </li>
           
         </ul>
@@ -109,8 +113,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Guia de uso &raquo;</li>
+        
+      
     
-    <li>Guia etiqueta</li>
+    <li>Tag</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/odufrn/odufrn-downloader/edit/master/docs/guia-etiqueta.md"
@@ -186,10 +194,8 @@ print(list_tags)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../guia-geral/" class="btn btn-neutral float-right" title="Guia geral">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../guia-group/" class="btn btn-neutral" title="Group"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -203,28 +209,28 @@ print(list_tags)
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/odufrn/odufrn-downloader" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/odufrn/odufrn-downloader/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../guia-group/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../guia-geral/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
