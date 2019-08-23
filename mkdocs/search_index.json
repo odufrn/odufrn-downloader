@@ -11,33 +11,8 @@
             "title": "Open Data UFRN Downloader"
         },
         {
-            "location": "/guia-etiqueta/",
-            "text": "Tag\n\n\nOs m\u00e9todos aqui apresentados s\u00e3o referentes ao uso de etiquetas de pacotes (listagem, busca, etc).\n\n\nload_tags\n\n\nAtualiza a lista de etiquetas dispon\u00edveis. A lista com esses valores \u00e9 a vari\u00e1vel \navailable_tags\n.\n\n\nExemplo\n:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Atualizando a lista de grupos dispon\u00edveis\nufrn_data.load_tags()\n# Acessando a lista de grupos dispon\u00edveis\nufrn_data.available_tags\n\n\n\n\nprint_tags\n\n\nImprime as etiquetas dispon\u00edveis. Apresenta os elementos presentes na lista \navailable_tags\n.\n\n\nExemplo\n:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Apresentando a lista de grupos de pacotes dispon\u00edveis\nufrn_data.print_tags()\n\n\n\n\nsearch_by_tag\n\n\nBusca pacotes com base em etiqueta.\n\n\nPar\u00e2metros\n:\n\n\n\n\n\n\n\n\nPar\u00e2metro\n\n\nTipo\n\n\nValor padr\u00e3o\n\n\nDescri\u00e7\u00e3o\n\n\n\n\n\n\n\n\n\n\ntag\n\n\nstr\n\n\n-\n\n\nEtiqueta desejada.\n\n\n\n\n\n\n\n\nExemplo\n:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Procurar grupos relacionados a pesquisa\nlist_tags = ufrn_data.search_by_tag('graduacao')\nprint(list_tags)\n\n# Output:\n# ['cursos-de-graduacao', 'discentes', 'turmas', 'cursos-ufrn', 'estruturas-curriculares']",
-            "title": "Guia etiqueta"
-        },
-        {
-            "location": "/guia-etiqueta/#tag",
-            "text": "Os m\u00e9todos aqui apresentados s\u00e3o referentes ao uso de etiquetas de pacotes (listagem, busca, etc).",
-            "title": "Tag"
-        },
-        {
-            "location": "/guia-etiqueta/#load_tags",
-            "text": "Atualiza a lista de etiquetas dispon\u00edveis. A lista com esses valores \u00e9 a vari\u00e1vel  available_tags .  Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Atualizando a lista de grupos dispon\u00edveis\nufrn_data.load_tags()\n# Acessando a lista de grupos dispon\u00edveis\nufrn_data.available_tags",
-            "title": "load_tags"
-        },
-        {
-            "location": "/guia-etiqueta/#print_tags",
-            "text": "Imprime as etiquetas dispon\u00edveis. Apresenta os elementos presentes na lista  available_tags .  Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Apresentando a lista de grupos de pacotes dispon\u00edveis\nufrn_data.print_tags()",
-            "title": "print_tags"
-        },
-        {
-            "location": "/guia-etiqueta/#search_by_tag",
-            "text": "Busca pacotes com base em etiqueta.  Par\u00e2metros :     Par\u00e2metro  Tipo  Valor padr\u00e3o  Descri\u00e7\u00e3o      tag  str  -  Etiqueta desejada.     Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Procurar grupos relacionados a pesquisa\nlist_tags = ufrn_data.search_by_tag('graduacao')\nprint(list_tags)\n\n# Output:\n# ['cursos-de-graduacao', 'discentes', 'turmas', 'cursos-ufrn', 'estruturas-curriculares']",
-            "title": "search_by_tag"
-        },
-        {
             "location": "/guia-geral/",
-            "text": "Geral\n\n\nComo come\u00e7ar a usar o pacote:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n\n\n\nM\u00e9todos\n\n\nAbaixo est\u00e3o listados os m\u00e9todos dispon\u00edveis no pacote:\n\n\n\n\n\n\n\n\nM\u00e9todo\n\n\nDescri\u00e7\u00e3o\n\n\n\n\n\n\n\n\n\n\ndownload_all\n\n\nBaixa todos os conjuntos de dados dispon\u00edveis.\n\n\n\n\n\n\ndownload_package\n\n\nBaixa o pacote de dados desejado.\n\n\n\n\n\n\ndownload_packages\n\n\nBaixa uma lista de pacotes de dados desejado.\n\n\n\n\n\n\ndownload_from_file\n\n\nBaixa os pacotes de dados que est\u00e3o escritos em um arquivo de texto.\n\n\n\n\n\n\ndownload_group\n\n\nBaixa um grupo de conjuntos de dados desejado.\n\n\n\n\n\n\ndownload_groups\n\n\nBaixa uma lista de grupos de pacotes de dados desejado.\n\n\n\n\n\n\nload_packages\n\n\nAtualiza a lista de pacotes dispon\u00edveis.\n\n\n\n\n\n\nload_groups\n\n\nAtualiza a lista de grupos dispon\u00edveis.\n\n\n\n\n\n\nload_tags\n\n\nAtualiza lista de etiquetas dispon\u00edveis.\n\n\n\n\n\n\nprint_files_from_package\n\n\nImprime no terminal a lista de arquivos referentes ao pacote de entrada.\n\n\n\n\n\n\nprint_files_from_group\n\n\nImprime no terminal a lista de arquivos referentes ao grupo de entrada.\n\n\n\n\n\n\nprint_packages\n\n\nImprime os pacotes de dados.\n\n\n\n\n\n\nprint_groups\n\n\nImprime os grupos de conjuntos de dados.\n\n\n\n\n\n\nprint_tags\n\n\nImprime as etiquetas.\n\n\n\n\n\n\nsearch_by_tag\n\n\nRetorna uma lista de pacotes de dados relacionados a uma etiqueta.\n\n\n\n\n\n\nsearch_related_packages\n\n\nRetorna uma lista de pacotes de dados relacionados a uma entrada.\n\n\n\n\n\n\nsearch_related_groups\n\n\nRetorna uma lista de grupos de conjuntos de dados relacionados a uma entrada.",
+            "text": "Geral\n\n\nComo come\u00e7ar a usar o pacote:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n\n\n\nM\u00e9todos\n\n\nAbaixo est\u00e3o listados os m\u00e9todos dispon\u00edveis no pacote:\n\n\n\n\n\n\n\n\nM\u00e9todo\n\n\nDescri\u00e7\u00e3o\n\n\n\n\n\n\n\n\n\n\ndownload_all\n\n\nBaixa todos os conjuntos de dados dispon\u00edveis.\n\n\n\n\n\n\ndownload_from_file\n\n\nBaixa os pacotes de dados que est\u00e3o escritos em um arquivo de texto.\n\n\n\n\n\n\ndownload_group\n\n\nBaixa um grupo de conjuntos de dados desejado.\n\n\n\n\n\n\ndownload_groups\n\n\nBaixa uma lista de grupos de pacotes de dados desejado.\n\n\n\n\n\n\ndownload_package\n\n\nBaixa o pacote de dados desejado.\n\n\n\n\n\n\ndownload_packages\n\n\nBaixa uma lista de pacotes de dados desejado.\n\n\n\n\n\n\nload_groups\n\n\nAtualiza a lista de grupos dispon\u00edveis.\n\n\n\n\n\n\nload_packages\n\n\nAtualiza a lista de pacotes dispon\u00edveis.\n\n\n\n\n\n\nload_tags\n\n\nAtualiza lista de etiquetas dispon\u00edveis.\n\n\n\n\n\n\nprint_files_from_group\n\n\nImprime no terminal a lista de arquivos referentes ao grupo de entrada.\n\n\n\n\n\n\nprint_files_from_package\n\n\nImprime no terminal a lista de arquivos referentes ao pacote de entrada.\n\n\n\n\n\n\nprint_groups\n\n\nImprime os grupos de conjuntos de dados.\n\n\n\n\n\n\nprint_packages\n\n\nImprime os pacotes de dados.\n\n\n\n\n\n\nprint_tags\n\n\nImprime as etiquetas.\n\n\n\n\n\n\nsearch_by_tag\n\n\nRetorna uma lista de pacotes de dados relacionados a uma etiqueta.\n\n\n\n\n\n\nsearch_related_groups\n\n\nRetorna uma lista de grupos de conjuntos de dados relacionados a uma entrada.\n\n\n\n\n\n\nsearch_related_packages\n\n\nRetorna uma lista de pacotes de dados relacionados a uma entrada.",
             "title": "Guia geral"
         },
         {
@@ -47,7 +22,7 @@
         },
         {
             "location": "/guia-geral/#metodos",
-            "text": "Abaixo est\u00e3o listados os m\u00e9todos dispon\u00edveis no pacote:     M\u00e9todo  Descri\u00e7\u00e3o      download_all  Baixa todos os conjuntos de dados dispon\u00edveis.    download_package  Baixa o pacote de dados desejado.    download_packages  Baixa uma lista de pacotes de dados desejado.    download_from_file  Baixa os pacotes de dados que est\u00e3o escritos em um arquivo de texto.    download_group  Baixa um grupo de conjuntos de dados desejado.    download_groups  Baixa uma lista de grupos de pacotes de dados desejado.    load_packages  Atualiza a lista de pacotes dispon\u00edveis.    load_groups  Atualiza a lista de grupos dispon\u00edveis.    load_tags  Atualiza lista de etiquetas dispon\u00edveis.    print_files_from_package  Imprime no terminal a lista de arquivos referentes ao pacote de entrada.    print_files_from_group  Imprime no terminal a lista de arquivos referentes ao grupo de entrada.    print_packages  Imprime os pacotes de dados.    print_groups  Imprime os grupos de conjuntos de dados.    print_tags  Imprime as etiquetas.    search_by_tag  Retorna uma lista de pacotes de dados relacionados a uma etiqueta.    search_related_packages  Retorna uma lista de pacotes de dados relacionados a uma entrada.    search_related_groups  Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada.",
+            "text": "Abaixo est\u00e3o listados os m\u00e9todos dispon\u00edveis no pacote:     M\u00e9todo  Descri\u00e7\u00e3o      download_all  Baixa todos os conjuntos de dados dispon\u00edveis.    download_from_file  Baixa os pacotes de dados que est\u00e3o escritos em um arquivo de texto.    download_group  Baixa um grupo de conjuntos de dados desejado.    download_groups  Baixa uma lista de grupos de pacotes de dados desejado.    download_package  Baixa o pacote de dados desejado.    download_packages  Baixa uma lista de pacotes de dados desejado.    load_groups  Atualiza a lista de grupos dispon\u00edveis.    load_packages  Atualiza a lista de pacotes dispon\u00edveis.    load_tags  Atualiza lista de etiquetas dispon\u00edveis.    print_files_from_group  Imprime no terminal a lista de arquivos referentes ao grupo de entrada.    print_files_from_package  Imprime no terminal a lista de arquivos referentes ao pacote de entrada.    print_groups  Imprime os grupos de conjuntos de dados.    print_packages  Imprime os pacotes de dados.    print_tags  Imprime as etiquetas.    search_by_tag  Retorna uma lista de pacotes de dados relacionados a uma etiqueta.    search_related_groups  Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada.    search_related_packages  Retorna uma lista de pacotes de dados relacionados a uma entrada.",
             "title": "M\u00e9todos"
         },
         {
@@ -144,6 +119,31 @@
             "location": "/guia-package/#search_related_packages",
             "text": "Retorna uma lista de pacotes de dados relacionados a uma entrada.\nAtualmente usa-se o c\u00e1lculo de Levenshtein para verificar a similaridade\nentre a entrada e os nomes dos pacotes.  Par\u00e2metros :     Par\u00e2metro  Tipo  Valor padr\u00e3o  Descri\u00e7\u00e3o      keyword  str  -  Palavra-chave com a qual ser\u00e1 feita a busca.    simple_filter  bool  False  Indica o uso de um filtro mais simples que o Levenshtein.    search_tag  bool  False  Flag que indica se a palavra-chave deve ser usada como etiqueta.     Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Procurar packages relacionados a discente\nlist_discentes = ufrn_data.search_related_packages('discente')\nprint(list_discentes)\n# Output:\n# ['dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes', 'discentes']\nlist_discentes = ufrn_data.search_related_packages('disc')\nprint(list_discentes)\n# Output:\n# []\nlist_discentes = ufrn_data.search_related_packages('disc', simple_filter=True)\nprint(list_discentes)\n# Output:\n# ['dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes', 'discentes']",
             "title": "search_related_packages"
+        },
+        {
+            "location": "/guia-tag/",
+            "text": "Tag\n\n\nOs m\u00e9todos aqui apresentados s\u00e3o referentes ao uso de etiquetas de pacotes (listagem, busca, etc).\n\n\nload_tags\n\n\nAtualiza a lista de etiquetas dispon\u00edveis. A lista com esses valores \u00e9 a vari\u00e1vel \navailable_tags\n.\n\n\nExemplo\n:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Atualizando a lista de grupos dispon\u00edveis\nufrn_data.load_tags()\n# Acessando a lista de grupos dispon\u00edveis\nufrn_data.available_tags\n\n\n\n\nprint_tags\n\n\nImprime as etiquetas dispon\u00edveis. Apresenta os elementos presentes na lista \navailable_tags\n.\n\n\nExemplo\n:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Apresentando a lista de grupos de pacotes dispon\u00edveis\nufrn_data.print_tags()\n\n\n\n\nsearch_by_tag\n\n\nBusca pacotes com base em etiqueta.\n\n\nPar\u00e2metros\n:\n\n\n\n\n\n\n\n\nPar\u00e2metro\n\n\nTipo\n\n\nValor padr\u00e3o\n\n\nDescri\u00e7\u00e3o\n\n\n\n\n\n\n\n\n\n\ntag\n\n\nstr\n\n\n-\n\n\nEtiqueta desejada.\n\n\n\n\n\n\n\n\nExemplo\n:\n\n\nfrom odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Procurar grupos relacionados a pesquisa\nlist_tags = ufrn_data.search_by_tag('graduacao')\nprint(list_tags)\n\n# Output:\n# ['cursos-de-graduacao', 'discentes', 'turmas', 'cursos-ufrn', 'estruturas-curriculares']",
+            "title": "Guia tag"
+        },
+        {
+            "location": "/guia-tag/#tag",
+            "text": "Os m\u00e9todos aqui apresentados s\u00e3o referentes ao uso de etiquetas de pacotes (listagem, busca, etc).",
+            "title": "Tag"
+        },
+        {
+            "location": "/guia-tag/#load_tags",
+            "text": "Atualiza a lista de etiquetas dispon\u00edveis. A lista com esses valores \u00e9 a vari\u00e1vel  available_tags .  Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Atualizando a lista de grupos dispon\u00edveis\nufrn_data.load_tags()\n# Acessando a lista de grupos dispon\u00edveis\nufrn_data.available_tags",
+            "title": "load_tags"
+        },
+        {
+            "location": "/guia-tag/#print_tags",
+            "text": "Imprime as etiquetas dispon\u00edveis. Apresenta os elementos presentes na lista  available_tags .  Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Apresentando a lista de grupos de pacotes dispon\u00edveis\nufrn_data.print_tags()",
+            "title": "print_tags"
+        },
+        {
+            "location": "/guia-tag/#search_by_tag",
+            "text": "Busca pacotes com base em etiqueta.  Par\u00e2metros :     Par\u00e2metro  Tipo  Valor padr\u00e3o  Descri\u00e7\u00e3o      tag  str  -  Etiqueta desejada.     Exemplo :  from odufrn_downloader import ODUFRNDownloader\nufrn_data = ODUFRNDownloader()\n\n# Procurar grupos relacionados a pesquisa\nlist_tags = ufrn_data.search_by_tag('graduacao')\nprint(list_tags)\n\n# Output:\n# ['cursos-de-graduacao', 'discentes', 'turmas', 'cursos-ufrn', 'estruturas-curriculares']",
+            "title": "search_by_tag"
         }
     ]
 }

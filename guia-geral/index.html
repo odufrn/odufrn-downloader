@@ -52,11 +52,6 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../guia-etiqueta/">Guia etiqueta</a>
-	    </li>
-          
             <li class="toctree-l1 current">
 		
     <a class="current" href="./">Guia geral</a>
@@ -79,6 +74,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../guia-package/">Guia package</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../guia-tag/">Guia tag</a>
 	    </li>
           
         </ul>
@@ -137,14 +137,6 @@ ufrn_data = ODUFRNDownloader()
 <td>Baixa todos os conjuntos de dados disponíveis.</td>
 </tr>
 <tr>
-<td><code>download_package</code></td>
-<td>Baixa o pacote de dados desejado.</td>
-</tr>
-<tr>
-<td><code>download_packages</code></td>
-<td>Baixa uma lista de pacotes de dados desejado.</td>
-</tr>
-<tr>
 <td><code>download_from_file</code></td>
 <td>Baixa os pacotes de dados que estão escritos em um arquivo de texto.</td>
 </tr>
@@ -157,32 +149,40 @@ ufrn_data = ODUFRNDownloader()
 <td>Baixa uma lista de grupos de pacotes de dados desejado.</td>
 </tr>
 <tr>
-<td><code>load_packages</code></td>
-<td>Atualiza a lista de pacotes disponíveis.</td>
+<td><code>download_package</code></td>
+<td>Baixa o pacote de dados desejado.</td>
+</tr>
+<tr>
+<td><code>download_packages</code></td>
+<td>Baixa uma lista de pacotes de dados desejado.</td>
 </tr>
 <tr>
 <td><code>load_groups</code></td>
 <td>Atualiza a lista de grupos disponíveis.</td>
 </tr>
 <tr>
-<td><code>load_tags</code></td>
-<td>Atualiza lista de etiquetas disponíveis.</td>
+<td><code>load_packages</code></td>
+<td>Atualiza a lista de pacotes disponíveis.</td>
 </tr>
 <tr>
-<td><code>print_files_from_package</code></td>
-<td>Imprime no terminal a lista de arquivos referentes ao pacote de entrada.</td>
+<td><code>load_tags</code></td>
+<td>Atualiza lista de etiquetas disponíveis.</td>
 </tr>
 <tr>
 <td><code>print_files_from_group</code></td>
 <td>Imprime no terminal a lista de arquivos referentes ao grupo de entrada.</td>
 </tr>
 <tr>
-<td><code>print_packages</code></td>
-<td>Imprime os pacotes de dados.</td>
+<td><code>print_files_from_package</code></td>
+<td>Imprime no terminal a lista de arquivos referentes ao pacote de entrada.</td>
 </tr>
 <tr>
 <td><code>print_groups</code></td>
 <td>Imprime os grupos de conjuntos de dados.</td>
+</tr>
+<tr>
+<td><code>print_packages</code></td>
+<td>Imprime os pacotes de dados.</td>
 </tr>
 <tr>
 <td><code>print_tags</code></td>
@@ -193,12 +193,12 @@ ufrn_data = ODUFRNDownloader()
 <td>Retorna uma lista de pacotes de dados relacionados a uma etiqueta.</td>
 </tr>
 <tr>
-<td><code>search_related_packages</code></td>
-<td>Retorna uma lista de pacotes de dados relacionados a uma entrada.</td>
-</tr>
-<tr>
 <td><code>search_related_groups</code></td>
 <td>Retorna uma lista de grupos de conjuntos de dados relacionados a uma entrada.</td>
+</tr>
+<tr>
+<td><code>search_related_packages</code></td>
+<td>Retorna uma lista de pacotes de dados relacionados a uma entrada.</td>
 </tr>
 </tbody>
 </table>
@@ -212,7 +212,7 @@ ufrn_data = ODUFRNDownloader()
         <a href="../guia-group/" class="btn btn-neutral float-right" title="Guia group">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../guia-etiqueta/" class="btn btn-neutral" title="Guia etiqueta"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -240,7 +240,7 @@ ufrn_data = ODUFRNDownloader()
           <a href="https://github.com/odufrn/odufrn-downloader" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../guia-etiqueta/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../guia-group/" style="color: #fcfcfc">Next &raquo;</a></span>
