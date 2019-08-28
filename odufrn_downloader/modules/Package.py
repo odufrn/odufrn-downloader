@@ -3,6 +3,7 @@ import requests
 from .Env import Env
 from ..mixins.FilterMixin import FilterMixin
 from .Tag import Tag
+from io import BytesIO
 
 
 class Package(Env, FilterMixin):
@@ -189,8 +190,9 @@ class Package(Env, FilterMixin):
             self._print_exception(
                 e, self.str_related(self.search_related_packages(name))
             )
-
+    
     def _download(self, path: str, resource):
+        import sys
         """Baixa o arquivo desejado e o coloca na pasta desejada
 
         > Exemplo: _download('acervo-biblioteca')
@@ -201,10 +203,26 @@ class Package(Env, FilterMixin):
             o caminho da pasta onde serão adicionados os arquivos
             (por padrão, a pasta atual).
         """
-        print("Baixando {}...".format(resource['name']))
         file_path = '{}/{}.{}'.format(
             path, resource['name'], resource['format'].lower()
         )
 
         with open(file_path, 'wb') as f:
-            f.write(requests.get(resource['url']).content)
+            response = requests.get(resource['url'], stream=True)
+            raw_content = response.raw.read()
+            content_length = len(raw_content)
+            response.raw._fp = BytesIO(raw_content)
+            total = len(raw_content)
+            print("Baixando {}...".format(resource['name']))
+            if total is None:
+                f.write(requests.get(resource['url']).content)
+            else:
+                downloaded = 0
+                total = int(total)
+                for data in response.iter_content(chunk_size=max(int(total/1000), 1024*1024)):
+                    downloaded += len(data)
+                    f.write(data)
+                    done = int(50*downloaded/total)
+                    print('\r[{}{}]'.format('█' * done, '.' * (50-done)), '')
+                    sys.stdout.flush()
+            sys.stdout.write('\n')
