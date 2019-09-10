@@ -6,10 +6,10 @@ site_author: Open Data UFRN
 nav:
     - Instalação: index.md
     - Guia de uso:
-        - guia-geral.md
-        - guia-package.md
-        - guia-group.md
-        - guia-etiqueta.md
+        - Guia geral: guia-geral.md
+        - Guia Group: guia-group.md
+        - Guia Package: guia-package.md
+        - Guia Tag: guia-tag.md
 
 repo_url: https://github.com/odufrn/odufrn-downloader
 
