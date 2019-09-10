@@ -65,9 +65,10 @@ class Package(Env, FilterMixin):
 
         try:
             for resource in response['resources']:
-                if 'Dicion' in resource['name'] and dictionary:
-                    self._download(path, resource)
-                if years is None or self.year_find(resource['name'], years):
+                if 'Dicion' in resource['name']:
+                    if dictionary:
+                        self._download(path, resource)
+                elif years is None or self.year_find(resource['name'], years):
                     self._download(path, resource)
         except Exception as ex:
             self._print_exception(ex)
