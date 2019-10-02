@@ -66,3 +66,7 @@ ufrn_data.download_package('discentes')
 packages = ['discentes', 'dados-complementares-de-discentes', 'dados-socio-economicos-de-discentes']
 ufrn_data.download_packages(packages)
 ```
+
+### Notebooks de exemplo
+
+[Dinheiro gasto em obras da UFRN em licitações de 2018](https://colab.research.google.com/drive/19SaDlr9YSrMGBeMbbYZIegKwwbfAWBv5)
