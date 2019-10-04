@@ -13,7 +13,10 @@ import pandas as pd
 from odufrn_downloader import ODUFRNDownloader
 
 ufrn_data = ODUFRNDownloader()
+# Efetuando o download dos dados utilizando o ODUFRNDowloader
 ufrn_data.download_package('obras', dictionary=False)
+
+# Utilizando o pandas para transformar o conjunto de dados em um DataFrame
 obras = pd.read_csv('obras/Obras.csv', error_bad_lines=False, sep=';')
 
 obras_2018 = obras[obras['licitacao'].str.contains('2018')]['valor']
