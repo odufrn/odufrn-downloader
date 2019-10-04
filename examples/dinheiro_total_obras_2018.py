@@ -1,7 +1,9 @@
 # coding: utf-8
 '''
-Objetivo: Nesse script em questão queremos descobrir a quantidade de dinheiro gasto 
-em licitações de obras em 2018 pela Universidade Federal do Rio Grande do Norte (UFRN). 
+Objetivo: Nesse script em questão queremos
+descobrir a quantidade de dinheiro gasto
+em licitações de obras em 2018 pela Universidade
+Federal do Rio Grande do Norte (UFRN). 
 
 Requisitos: Pandas, ODUFRNDownloader
 
@@ -26,5 +28,4 @@ obras_2018 = obras_2018.str.replace('R', '').str.replace('$', '').str.strip()
 obras_2018 = obras_2018.str.replace('.', '').str.replace(',', '.')
 # Transformando os dados de string para float
 obras_2018 = obras_2018.astype(float)
-
 print('O gasto da UFRN para obras em 2018 foi: R$ ' + '{0:.2f}'.format(obras_2018.sum()))
