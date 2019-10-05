@@ -2,6 +2,7 @@ from .utils import *
 import tempfile
 from odufrn_downloader.modules.File import odufrIOError
 
+
 class Group(unittest.TestCase):
     def setUp(self):
         """Inicia novo objeto em todo os testes """
