@@ -1,5 +1,6 @@
 Pipfile
 Pipfile.lock
+env/
 .vscode/*
 .idea/*
 venv/*

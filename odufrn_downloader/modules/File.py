@@ -1,5 +1,6 @@
 import os
 from .Package import Package
+from odufrn_exceptions.exceptions import odufrIOError
 
 
 class File(Package):
@@ -34,5 +35,5 @@ class File(Package):
                     self.download_package(
                         packageName.rstrip(), path, dictionary, years
                     )
-        except IOError as ex:
-            self._print_exception(ex)
+        except IOError:
+            raise odufrIOError('odufrIOError: Escribir lo que quieras')
