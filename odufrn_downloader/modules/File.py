@@ -36,4 +36,4 @@ class File(Package):
                         packageName.rstrip(), path, dictionary, years
                     )
         except IOError:
-            raise odufrIOError('odufrIOError: Escribir algo <-- :-)')
+            raise odufrIOError()
