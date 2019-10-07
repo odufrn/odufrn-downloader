@@ -1,6 +1,6 @@
 import os
 from .Package import Package
-from odufrn_exceptions.exceptions import odufrIOError
+from odufrn_downloader.exceptions import odufrIOError
 
 
 class File(Package):
