@@ -1,5 +1,6 @@
 from .utils import *
 import tempfile
+from odufrn_downloader.modules.File import odufrIOError
 
 
 class Group(unittest.TestCase):
@@ -25,8 +26,6 @@ class Group(unittest.TestCase):
     def test_can_print_exception_download_packages_from_file(self):
         """Verifica se dado um arquivo com nomes errados de pacotes
         lança-se exceção."""
-        assert_console(
-            lambda: self.ufrn_data.download_from_file(
-                'potato', './tmp'
-            )
-        )
+
+        with self.assertRaises(odufrIOError):
+            self.ufrn_data.download_from_file('potato', './tmp')
