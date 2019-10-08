@@ -1,6 +1,6 @@
 import os
 from .Package import Package
-from odufrn_exceptions.exceptions import odufrIOError
+from odufrn_downloader.exceptions import odufrIOError
 
 
 class File(Package):
@@ -36,4 +36,4 @@ class File(Package):
                         packageName.rstrip(), path, dictionary, years
                     )
         except IOError:
-            raise odufrIOError('odufrIOError: Escribir algo <-- :-)')
+            raise odufrIOError()
