@@ -26,7 +26,8 @@ class Package(Env, FilterMixin):
         self.load_packages()
         self.tag = Tag()
 
-    def _get_related_package_search(self, keyword: str, dictionary: bool = False):
+    def _get_related_package_search(self, keyword: str, 
+                                    dictionary: bool = False):
         """Retorna packages relacionados de acordo com o nome
 
         Parâmetros
