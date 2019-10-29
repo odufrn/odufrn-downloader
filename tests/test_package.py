@@ -21,8 +21,8 @@ class Package(unittest.TestCase):
         self.assertTrue(len(list_groups) == 3)
         list_groups = self.ufrn_data.search_related_packages('disc', True)
         self.assertTrue(len(list_groups) == 3)
-        list_groups = self.ufrn_data.search_related_packages('disc')
-        self.assertTrue(len(list_groups) == 0)
+        list_groups = self.ufrn_data.search_related_packages('docentes', related_search=True)
+        self.assertTrue(len(list_groups) == 17)
 
     def test_can_print_files_from_package(self):
         """Verifica se os arquivos de um pacote podem ser impressos na tela."""

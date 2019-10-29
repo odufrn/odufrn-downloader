@@ -26,6 +26,25 @@ class Package(Env, FilterMixin):
         self.load_packages()
         self.tag = Tag()
 
+    def _get_related_package_search(self, keyword: str, dictionary: bool = False):
+        """Retorna packages relacionados de acordo com o nome
+
+        Parâmetros
+        ----------
+        keyword: str
+            keyword que deseja pesquisar similaridade
+        """
+        url_search_related = self.url_base + 'api/action/package_search?q='
+        request = self._request_get(url_search_related+keyword)
+        list_related_packages = []
+        for response in request['result']['results']:
+            for r in response['resources']:
+                if not dictionary and 'Dicion' in r['name']:
+                    continue
+                list_related_packages.append(r['name'])
+
+        return list_related_packages
+
     def load_packages(self):
         """Atualiza lista de pacotes disponíveis."""
         self.available_packages = self._load_list('package_list')
@@ -109,6 +128,7 @@ class Package(Env, FilterMixin):
 
     def search_related_packages(self, keyword: str,
                                 simple_filter: bool = False,
+                                related_search: bool = False,
                                 search_tag: bool = False) -> list:
         """Procura os pacotes de dados que possuam nomes
         semelhantes à palavra recebida.
@@ -128,8 +148,10 @@ class Package(Env, FilterMixin):
         # Busca nomes de pacotes semelhantes à palavra passada
         if simple_filter:
             related = self.simple_search(keyword, self.available_packages)
+        elif related_search:
+            related = self._get_related_package_search(keyword)
         else:
-            related = self.search_related(keyword, self.available_packages)
+            related = self.search_similar(keyword, self.available_packages)
 
         # Busca nomes relacionados à tag, se for o caso
         if search_tag:
