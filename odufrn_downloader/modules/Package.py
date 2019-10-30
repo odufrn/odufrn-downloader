@@ -26,7 +26,7 @@ class Package(Env, FilterMixin):
         self.load_packages()
         self.tag = Tag()
 
-    def _get_related_package_search(self, keyword: str, 
+    def _get_related_package_search(self, keyword: str,
                                     dictionary: bool = False):
         """Retorna packages relacionados de acordo com o nome
 
@@ -35,6 +35,7 @@ class Package(Env, FilterMixin):
         keyword: str
             keyword que deseja pesquisar similaridade
         """
+        
         url_search_related = self.url_base + 'api/action/package_search?q='
         request = self._request_get(url_search_related+keyword)
         list_related_packages = []
