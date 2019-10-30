@@ -35,9 +35,8 @@ class Package(Env, FilterMixin):
         keyword: str
             keyword que deseja pesquisar similaridade
         """
-        
         url_search_related = self.url_base + 'api/action/package_search?q='
-        request = self._request_get(url_search_related+keyword)
+        request = self._request_get(url_search_related + keyword)
         list_related_packages = []
         for response in request['result']['results']:
             for r in response['resources']:
