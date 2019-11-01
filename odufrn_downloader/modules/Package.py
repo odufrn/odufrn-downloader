@@ -27,22 +27,27 @@ class Package(Env, FilterMixin):
         self.tag = Tag()
 
     def _get_related_package_search(self, keyword: str,
-                                    dictionary: bool = False):
+                                    dictionary: bool = False) -> list:
         """Retorna packages relacionados de acordo com o nome
 
         Parâmetros
         ----------
         keyword: str
             keyword que deseja pesquisar similaridade
+
+        Retorno
+        ----------
+        list_related_packages: list
+            lista com os nomes relacionados a keyword passada
         """
         url_search_related = self.url_base + 'api/action/package_search?q='
         request = self._request_get(url_search_related + keyword)
         list_related_packages = []
         for response in request['result']['results']:
-            for r in response['resources']:
-                if not dictionary and 'Dicion' in r['name']:
+            for res in response['resources']:
+                if not dictionary and 'Dicion' in res['name']:
                     continue
-                list_related_packages.append(r['name'])
+                list_related_packages.append(res['name'])
 
         return list_related_packages
 
