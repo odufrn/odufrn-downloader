@@ -127,7 +127,7 @@ class Group(Package):
         if simple_filter:
             related = self.simple_search(keyword, self.available_groups)
         else:
-            related = self.search_related(keyword, self.available_groups)
+            related = self.search_similar(keyword, self.available_groups)
 
         # Imprime exceção se não houver grupos similares
         if not len(related) and self.warnings:

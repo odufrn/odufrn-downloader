@@ -21,8 +21,9 @@ class Package(unittest.TestCase):
         self.assertTrue(len(list_groups) == 3)
         list_groups = self.ufrn_data.search_related_packages('disc', True)
         self.assertTrue(len(list_groups) == 3)
-        list_groups = self.ufrn_data.search_related_packages('disc')
-        self.assertTrue(len(list_groups) == 0)
+        list_groups = self.ufrn_data.search_related_packages(
+            'docentes', related_search=True)
+        self.assertTrue(len(list_groups) == 17)
 
     def test_can_download_package(self):
         """Verifica se baixa-se arquivos de um grupo"""
